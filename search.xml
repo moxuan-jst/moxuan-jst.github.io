@@ -1,22 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hello World</title>
-    <url>/2020/01/27/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><a id="more"></a>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+    <title>hexo从Linux迁移至windows的问题解决办法</title>
+    <url>/2020/01/27/hexo%E4%BB%8ELinux%E8%BF%81%E7%A7%BB%E8%87%B3windows%E7%9A%84%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</url>
+    <content><![CDATA[<p>换了新电脑以后，回到了windows系统，然后将原来电脑的所有东西都做了迁移，但是今天在进行博客恢复的时候，发现执行<code>hexo d</code>的时候无法提交到GitHub仓库去，提示：</p><figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">nothing to commit, working directory clean</span><br><span class="line">Branch master <span class="built_in">set</span> up to track remote branch master from git@github.com:moxuan-jst/moxuan-jst.github.io.git.</span><br><span class="line">Everything up-to-<span class="built_in">date</span></span><br><span class="line">On branch master</span><br><span class="line">nothing to commit, working directory clean</span><br><span class="line">Permission denied (publickey).</span><br><span class="line"><span class="function">fatal: <span class="title">Could</span> <span class="title">not</span> <span class="title">read</span> <span class="title">from</span> <span class="title">remote</span> <span class="title">repository</span>.</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="title">Please</span> <span class="title">make</span> <span class="title">sure</span> <span class="title">you</span> <span class="title">have</span> <span class="title">the</span> <span class="title">correct</span> <span class="title">access</span> <span class="title">rights</span></span></span><br><span class="line"><span class="function"><span class="title">and</span> <span class="title">the</span> <span class="title">repository</span> <span class="title">exists</span>.</span></span><br><span class="line"><span class="function"><span class="title">FATAL</span> <span class="title">Something</span>'<span class="title">s</span> <span class="title">wrong</span>. <span class="title">Maybe</span> <span class="title">you</span> <span class="title">can</span> <span class="title">find</span> <span class="title">the</span> <span class="title">solution</span> <span class="title">here</span>: <span class="title">https</span>://<span class="title">hexo.io</span>/<span class="title">docs</span>/<span class="title">troubleshooting.html</span></span></span><br><span class="line"><span class="function"><span class="title">Error</span>: <span class="title">Spawn</span> <span class="title">failed</span></span></span><br><span class="line"><span class="function">    <span class="title">at</span> <span class="title">ChildProcess</span>.&lt;<span class="title">anonymous</span>&gt; (<span class="title">D</span>:\<span class="title">wenjian</span>\<span class="title">demo</span>\<span class="title">blog</span>\<span class="title">node_modules</span>\<span class="title">hexo</span>-<span class="title">util</span>\<span class="title">lib</span>\<span class="title">spawn.js</span>:51:21)</span></span><br><span class="line"><span class="function">    <span class="title">at</span> <span class="title">ChildProcess.emit</span> (<span class="title">events.js</span>:223:5)</span></span><br><span class="line"><span class="function">    <span class="title">at</span> <span class="title">ChildProcess.cp.emit</span> (<span class="title">D</span>:\<span class="title">wenjian</span>\<span class="title">demo</span>\<span class="title">blog</span>\<span class="title">node_modules</span>\<span class="title">cross</span>-<span class="title">spawn</span>\<span class="title">lib</span>\<span class="title">enoent.js</span>:34:29)</span></span><br><span class="line"><span class="function">    <span class="title">at</span> <span class="title">Process.ChildProcess._handle.onexit</span> (<span class="title">internal</span>/<span class="title">child_process.js</span>:272:12)</span></span><br></pre></td></tr></table></figure><a id="more"></a>
 
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>网上找了好多方案，但是都没有成功，没有办法，只能将原来的GitHub仓库删除重新创建一个，然后将ssh-key也重新上传，完了以后还是不行。</p>
+<p>快要放弃重新再从头做一遍的时候，突然想起来在<code>_config.yml</code>中配置过两个仓库地址，一个GitHub的，还有一个是coding的仓库，将coding的仓库删除以后，再次执行<code>hexo d</code>运行成功。</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/deployment.html</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span></span><br><span class="line">    <span class="attr">github:</span> <span class="string">git@github.com:xxxxxx/xxxxxxx.github.io.git</span></span><br><span class="line">    <span class="attr">coding:</span> <span class="string">git@git.dev.tencent.com:xxxxxx/xxxxxxx.coding.me.git(删除)</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">type:</span> <span class="string">baidu_url_submitter</span></span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
 ]]></content>
+      <categories>
+        <category>hexo</category>
+        <category>记录</category>
+      </categories>
+      <tags>
+        <tag>记录</tag>
+        <tag>hexo</tag>
+      </tags>
   </entry>
   <entry>
     <title>http/2的新特性</title>
@@ -66,8 +68,8 @@
         <category>总结</category>
       </categories>
       <tags>
-        <tag>总结</tag>
         <tag>记录</tag>
+        <tag>总结</tag>
       </tags>
   </entry>
   <entry>
@@ -447,8 +449,8 @@
         <category>vue</category>
       </categories>
       <tags>
-        <tag>记录</tag>
         <tag>前端</tag>
+        <tag>记录</tag>
         <tag>vue</tag>
         <tag>源码</tag>
       </tags>
@@ -572,8 +574,8 @@
         <category>记录</category>
       </categories>
       <tags>
-        <tag>记录</tag>
         <tag>前端</tag>
+        <tag>记录</tag>
         <tag>vue</tag>
       </tags>
   </entry>
@@ -733,8 +735,8 @@
         <category>vueCli</category>
       </categories>
       <tags>
-        <tag>记录</tag>
         <tag>前端</tag>
+        <tag>记录</tag>
         <tag>vue</tag>
       </tags>
   </entry>
@@ -813,8 +815,8 @@
         <category>vueRouter</category>
       </categories>
       <tags>
-        <tag>记录</tag>
         <tag>前端</tag>
+        <tag>记录</tag>
         <tag>vue</tag>
       </tags>
   </entry>
@@ -1039,8 +1041,8 @@ mounted(){
         <category>记录</category>
       </categories>
       <tags>
-        <tag>记录</tag>
         <tag>前端</tag>
+        <tag>记录</tag>
         <tag>vue</tag>
       </tags>
   </entry>
@@ -1156,8 +1158,8 @@ mounted(){
       </categories>
       <tags>
         <tag>前端</tag>
-        <tag>webpack</tag>
         <tag>笔记</tag>
+        <tag>webpack</tag>
       </tags>
   </entry>
   <entry>
@@ -1595,8 +1597,8 @@ mounted(){
         <category>记录</category>
       </categories>
       <tags>
-        <tag>记录</tag>
         <tag>前端</tag>
+        <tag>记录</tag>
       </tags>
   </entry>
   <entry>
@@ -2392,6 +2394,17 @@ mounted(){
       <tags>
         <tag>记录</tag>
         <tag>博客</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>欢迎光临！</title>
+    <url>/2019/10/28/hello-world/</url>
+    <content><![CDATA[<p>哈喽，大家好呀！　^_^</p><p>欢迎来到墨轩的小家，这里有可爱的血小板（看板娘），还有我的一些笔记，想法等等，如果大家有什么好的建议或者想法都可以在文章下方评论，我都会及时回复的。</p><p>大家常来玩啊！ ^_^</p><p>正在建设中……尽情期待　^_^</p>]]></content>
+      <categories>
+        <category>欢迎页</category>
+      </categories>
+      <tags>
+        <tag>欢迎</tag>
       </tags>
   </entry>
 </search>

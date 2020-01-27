@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://moxuan.xyz/"/>
-  <updated>2020-01-27T05:42:16.166Z</updated>
+  <updated>2020-01-27T07:49:04.455Z</updated>
   <id>https://moxuan.xyz/</id>
   
   <author>
@@ -17,21 +17,29 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Hello World</title>
-    <link href="https://moxuan.xyz/2020/01/27/hello-world/"/>
-    <id>https://moxuan.xyz/2020/01/27/hello-world/</id>
-    <published>2020-01-27T05:42:16.166Z</published>
-    <updated>2020-01-27T05:42:16.166Z</updated>
+    <title>hexo从Linux迁移至windows的问题解决办法</title>
+    <link href="https://moxuan.xyz/2020/01/27/hexo%E4%BB%8ELinux%E8%BF%81%E7%A7%BB%E8%87%B3windows%E7%9A%84%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/"/>
+    <id>https://moxuan.xyz/2020/01/27/hexo从Linux迁移至windows的问题解决办法/</id>
+    <published>2020-01-27T07:30:43.000Z</published>
+    <updated>2020-01-27T07:49:04.455Z</updated>
     
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><a id="more"></a><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+    <content type="html"><![CDATA[<p>换了新电脑以后，回到了windows系统，然后将原来电脑的所有东西都做了迁移，但是今天在进行博客恢复的时候，发现执行<code>hexo d</code>的时候无法提交到GitHub仓库去，提示：</p><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">nothing to commit, working directory clean</span><br><span class="line">Branch master <span class="built_in">set</span> up to track remote branch master from git@github.com:moxuan-jst/moxuan-jst.github.io.git.</span><br><span class="line">Everything up-to-<span class="built_in">date</span></span><br><span class="line">On branch master</span><br><span class="line">nothing to commit, working directory clean</span><br><span class="line">Permission denied (publickey).</span><br><span class="line"><span class="function">fatal: <span class="title">Could</span> <span class="title">not</span> <span class="title">read</span> <span class="title">from</span> <span class="title">remote</span> <span class="title">repository</span>.</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="title">Please</span> <span class="title">make</span> <span class="title">sure</span> <span class="title">you</span> <span class="title">have</span> <span class="title">the</span> <span class="title">correct</span> <span class="title">access</span> <span class="title">rights</span></span></span><br><span class="line"><span class="function"><span class="title">and</span> <span class="title">the</span> <span class="title">repository</span> <span class="title">exists</span>.</span></span><br><span class="line"><span class="function"><span class="title">FATAL</span> <span class="title">Something</span>'<span class="title">s</span> <span class="title">wrong</span>. <span class="title">Maybe</span> <span class="title">you</span> <span class="title">can</span> <span class="title">find</span> <span class="title">the</span> <span class="title">solution</span> <span class="title">here</span>: <span class="title">https</span>://<span class="title">hexo.io</span>/<span class="title">docs</span>/<span class="title">troubleshooting.html</span></span></span><br><span class="line"><span class="function"><span class="title">Error</span>: <span class="title">Spawn</span> <span class="title">failed</span></span></span><br><span class="line"><span class="function">    <span class="title">at</span> <span class="title">ChildProcess</span>.&lt;<span class="title">anonymous</span>&gt; (<span class="title">D</span>:\<span class="title">wenjian</span>\<span class="title">demo</span>\<span class="title">blog</span>\<span class="title">node_modules</span>\<span class="title">hexo</span>-<span class="title">util</span>\<span class="title">lib</span>\<span class="title">spawn.js</span>:51:21)</span></span><br><span class="line"><span class="function">    <span class="title">at</span> <span class="title">ChildProcess.emit</span> (<span class="title">events.js</span>:223:5)</span></span><br><span class="line"><span class="function">    <span class="title">at</span> <span class="title">ChildProcess.cp.emit</span> (<span class="title">D</span>:\<span class="title">wenjian</span>\<span class="title">demo</span>\<span class="title">blog</span>\<span class="title">node_modules</span>\<span class="title">cross</span>-<span class="title">spawn</span>\<span class="title">lib</span>\<span class="title">enoent.js</span>:34:29)</span></span><br><span class="line"><span class="function">    <span class="title">at</span> <span class="title">Process.ChildProcess._handle.onexit</span> (<span class="title">internal</span>/<span class="title">child_process.js</span>:272:12)</span></span><br></pre></td></tr></table></figure><a id="more"></a><p>网上找了好多方案，但是都没有成功，没有办法，只能将原来的GitHub仓库删除重新创建一个，然后将ssh-key也重新上传，完了以后还是不行。</p><p>快要放弃重新再从头做一遍的时候，突然想起来在<code>_config.yml</code>中配置过两个仓库地址，一个GitHub的，还有一个是coding的仓库，将coding的仓库删除以后，再次执行<code>hexo d</code>运行成功。</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/deployment.html</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span></span><br><span class="line">    <span class="attr">github:</span> <span class="string">git@github.com:xxxxxx/xxxxxxx.github.io.git</span></span><br><span class="line">    <span class="attr">coding:</span> <span class="string">git@git.dev.tencent.com:xxxxxx/xxxxxxx.coding.me.git(删除)</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">type:</span> <span class="string">baidu_url_submitter</span></span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+      &lt;p&gt;换了新电脑以后，回到了windows系统，然后将原来电脑的所有东西都做了迁移，但是今天在进行博客恢复的时候，发现执行&lt;code&gt;hexo d&lt;/code&gt;的时候无法提交到GitHub仓库去，提示：&lt;/p&gt;&lt;figure class=&quot;highlight cmd&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;nothing to commit, working directory clean&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Branch master &lt;span class=&quot;built_in&quot;&gt;set&lt;/span&gt; up to track remote branch master from git@github.com:moxuan-jst/moxuan-jst.github.io.git.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Everything up-to-&lt;span class=&quot;built_in&quot;&gt;date&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;On branch master&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;nothing to commit, working directory clean&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Permission denied (publickey).&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;fatal: &lt;span class=&quot;title&quot;&gt;Could&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;not&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;read&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;remote&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;repository&lt;/span&gt;.&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;Please&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;make&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;sure&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;you&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;have&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;the&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;correct&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;access&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;rights&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;the&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;repository&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;exists&lt;/span&gt;.&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;FATAL&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Something&lt;/span&gt;&#39;&lt;span class=&quot;title&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;wrong&lt;/span&gt;. &lt;span class=&quot;title&quot;&gt;Maybe&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;you&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;can&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;find&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;the&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;solution&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;here&lt;/span&gt;: &lt;span class=&quot;title&quot;&gt;https&lt;/span&gt;://&lt;span class=&quot;title&quot;&gt;hexo.io&lt;/span&gt;/&lt;span class=&quot;title&quot;&gt;docs&lt;/span&gt;/&lt;span class=&quot;title&quot;&gt;troubleshooting.html&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;Error&lt;/span&gt;: &lt;span class=&quot;title&quot;&gt;Spawn&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;failed&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;    &lt;span class=&quot;title&quot;&gt;at&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;ChildProcess&lt;/span&gt;.&amp;lt;&lt;span class=&quot;title&quot;&gt;anonymous&lt;/span&gt;&amp;gt; (&lt;span class=&quot;title&quot;&gt;D&lt;/span&gt;:\&lt;span class=&quot;title&quot;&gt;wenjian&lt;/span&gt;\&lt;span class=&quot;title&quot;&gt;demo&lt;/span&gt;\&lt;span class=&quot;title&quot;&gt;blog&lt;/span&gt;\&lt;span class=&quot;title&quot;&gt;node_modules&lt;/span&gt;\&lt;span class=&quot;title&quot;&gt;hexo&lt;/span&gt;-&lt;span class=&quot;title&quot;&gt;util&lt;/span&gt;\&lt;span class=&quot;title&quot;&gt;lib&lt;/span&gt;\&lt;span class=&quot;title&quot;&gt;spawn.js&lt;/span&gt;:51:21)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;    &lt;span class=&quot;title&quot;&gt;at&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;ChildProcess.emit&lt;/span&gt; (&lt;span class=&quot;title&quot;&gt;events.js&lt;/span&gt;:223:5)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;    &lt;span class=&quot;title&quot;&gt;at&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;ChildProcess.cp.emit&lt;/span&gt; (&lt;span class=&quot;title&quot;&gt;D&lt;/span&gt;:\&lt;span class=&quot;title&quot;&gt;wenjian&lt;/span&gt;\&lt;span class=&quot;title&quot;&gt;demo&lt;/span&gt;\&lt;span class=&quot;title&quot;&gt;blog&lt;/span&gt;\&lt;span class=&quot;title&quot;&gt;node_modules&lt;/span&gt;\&lt;span class=&quot;title&quot;&gt;cross&lt;/span&gt;-&lt;span class=&quot;title&quot;&gt;spawn&lt;/span&gt;\&lt;span class=&quot;title&quot;&gt;lib&lt;/span&gt;\&lt;span class=&quot;title&quot;&gt;enoent.js&lt;/span&gt;:34:29)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;    &lt;span class=&quot;title&quot;&gt;at&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Process.ChildProcess._handle.onexit&lt;/span&gt; (&lt;span class=&quot;title&quot;&gt;internal&lt;/span&gt;/&lt;span class=&quot;title&quot;&gt;child_process.js&lt;/span&gt;:272:12)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
     
     </summary>
     
     
+      <category term="hexo" scheme="https://moxuan.xyz/categories/hexo/"/>
+    
+      <category term="记录" scheme="https://moxuan.xyz/categories/hexo/%E8%AE%B0%E5%BD%95/"/>
+    
+    
+      <category term="记录" scheme="https://moxuan.xyz/tags/%E8%AE%B0%E5%BD%95/"/>
+    
+      <category term="hexo" scheme="https://moxuan.xyz/tags/hexo/"/>
     
   </entry>
   
@@ -88,9 +96,9 @@
       <category term="总结" scheme="https://moxuan.xyz/categories/%E8%AE%B0%E5%BD%95/%E6%80%BB%E7%BB%93/"/>
     
     
-      <category term="总结" scheme="https://moxuan.xyz/tags/%E6%80%BB%E7%BB%93/"/>
-    
       <category term="记录" scheme="https://moxuan.xyz/tags/%E8%AE%B0%E5%BD%95/"/>
+    
+      <category term="总结" scheme="https://moxuan.xyz/tags/%E6%80%BB%E7%BB%93/"/>
     
   </entry>
   
@@ -302,9 +310,9 @@
       <category term="vue" scheme="https://moxuan.xyz/categories/%E8%AE%B0%E5%BD%95/%E5%89%8D%E7%AB%AF/vue/"/>
     
     
-      <category term="记录" scheme="https://moxuan.xyz/tags/%E8%AE%B0%E5%BD%95/"/>
-    
       <category term="前端" scheme="https://moxuan.xyz/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="记录" scheme="https://moxuan.xyz/tags/%E8%AE%B0%E5%BD%95/"/>
     
       <category term="vue" scheme="https://moxuan.xyz/tags/vue/"/>
     
@@ -336,9 +344,9 @@
       <category term="记录" scheme="https://moxuan.xyz/categories/%E5%89%8D%E7%AB%AF/vue/%E8%AE%B0%E5%BD%95/"/>
     
     
-      <category term="记录" scheme="https://moxuan.xyz/tags/%E8%AE%B0%E5%BD%95/"/>
-    
       <category term="前端" scheme="https://moxuan.xyz/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="记录" scheme="https://moxuan.xyz/tags/%E8%AE%B0%E5%BD%95/"/>
     
       <category term="vue" scheme="https://moxuan.xyz/tags/vue/"/>
     
@@ -397,9 +405,9 @@
       <category term="vueCli" scheme="https://moxuan.xyz/categories/%E5%89%8D%E7%AB%AF/vue/%E8%AE%B0%E5%BD%95/vueCli/"/>
     
     
-      <category term="记录" scheme="https://moxuan.xyz/tags/%E8%AE%B0%E5%BD%95/"/>
-    
       <category term="前端" scheme="https://moxuan.xyz/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="记录" scheme="https://moxuan.xyz/tags/%E8%AE%B0%E5%BD%95/"/>
     
       <category term="vue" scheme="https://moxuan.xyz/tags/vue/"/>
     
@@ -430,9 +438,9 @@
       <category term="vueRouter" scheme="https://moxuan.xyz/categories/%E5%89%8D%E7%AB%AF/vue/%E8%AE%B0%E5%BD%95/vueRouter/"/>
     
     
-      <category term="记录" scheme="https://moxuan.xyz/tags/%E8%AE%B0%E5%BD%95/"/>
-    
       <category term="前端" scheme="https://moxuan.xyz/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="记录" scheme="https://moxuan.xyz/tags/%E8%AE%B0%E5%BD%95/"/>
     
       <category term="vue" scheme="https://moxuan.xyz/tags/vue/"/>
     
@@ -461,9 +469,9 @@
       <category term="记录" scheme="https://moxuan.xyz/categories/%E5%89%8D%E7%AB%AF/vue/%E8%AE%B0%E5%BD%95/"/>
     
     
-      <category term="记录" scheme="https://moxuan.xyz/tags/%E8%AE%B0%E5%BD%95/"/>
-    
       <category term="前端" scheme="https://moxuan.xyz/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="记录" scheme="https://moxuan.xyz/tags/%E8%AE%B0%E5%BD%95/"/>
     
       <category term="vue" scheme="https://moxuan.xyz/tags/vue/"/>
     
@@ -525,9 +533,9 @@
     
       <category term="前端" scheme="https://moxuan.xyz/tags/%E5%89%8D%E7%AB%AF/"/>
     
-      <category term="webpack" scheme="https://moxuan.xyz/tags/webpack/"/>
-    
       <category term="笔记" scheme="https://moxuan.xyz/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="webpack" scheme="https://moxuan.xyz/tags/webpack/"/>
     
   </entry>
   
@@ -647,9 +655,9 @@
       <category term="记录" scheme="https://moxuan.xyz/categories/%E5%89%8D%E7%AB%AF/%E8%AE%B0%E5%BD%95/"/>
     
     
-      <category term="记录" scheme="https://moxuan.xyz/tags/%E8%AE%B0%E5%BD%95/"/>
-    
       <category term="前端" scheme="https://moxuan.xyz/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="记录" scheme="https://moxuan.xyz/tags/%E8%AE%B0%E5%BD%95/"/>
     
   </entry>
   

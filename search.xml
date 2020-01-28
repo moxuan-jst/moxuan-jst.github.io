@@ -4,7 +4,7 @@
     <title>Python3下载并合并m3u8文件</title>
     <url>/2020/01/28/Python3%E4%B8%8B%E8%BD%BD%E5%B9%B6%E5%90%88%E5%B9%B6m3u8%E6%96%87%E4%BB%B6/</url>
     <content><![CDATA[<p>前两天看见鬼刀在B站发的一个视频，然后网上找了好久没有找到，决定自己动手从他的官网下载一份，说干就干。</p>
-<p><img src="/2020/01/28/Python3%E4%B8%8B%E8%BD%BD%E5%B9%B6%E5%90%88%E5%B9%B6m3u8%E6%96%87%E4%BB%B6/D:%5Cwenjian%5Cdemo%5Cblog%5Csource_posts%5CPython3%E4%B8%8B%E8%BD%BD%E5%B9%B6%E5%90%88%E5%B9%B6m3u8%E6%96%87%E4%BB%B6%5Cwolp.png" alt></p>
+<p><img src="/2020/01/28/Python3%E4%B8%8B%E8%BD%BD%E5%B9%B6%E5%90%88%E5%B9%B6m3u8%E6%96%87%E4%BB%B6/wolp.png" alt></p>
 <a id="more"></a>
 
 <h2 id="什么是m3u8文件"><a href="#什么是m3u8文件" class="headerlink" title="什么是m3u8文件"></a>什么是m3u8文件</h2><p><strong>M3U8文件是指UTF-8编码格式的M3U文件。</strong></p>
@@ -110,8 +110,8 @@
         <category>总结</category>
       </categories>
       <tags>
-        <tag>记录</tag>
         <tag>总结</tag>
+        <tag>记录</tag>
       </tags>
   </entry>
   <entry>
@@ -491,8 +491,8 @@
         <category>vue</category>
       </categories>
       <tags>
-        <tag>前端</tag>
         <tag>记录</tag>
+        <tag>前端</tag>
         <tag>vue</tag>
         <tag>源码</tag>
       </tags>
@@ -616,8 +616,8 @@
         <category>记录</category>
       </categories>
       <tags>
-        <tag>前端</tag>
         <tag>记录</tag>
+        <tag>前端</tag>
         <tag>vue</tag>
       </tags>
   </entry>
@@ -777,8 +777,8 @@
         <category>vueCli</category>
       </categories>
       <tags>
-        <tag>前端</tag>
         <tag>记录</tag>
+        <tag>前端</tag>
         <tag>vue</tag>
       </tags>
   </entry>
@@ -857,8 +857,8 @@
         <category>vueRouter</category>
       </categories>
       <tags>
-        <tag>前端</tag>
         <tag>记录</tag>
+        <tag>前端</tag>
         <tag>vue</tag>
       </tags>
   </entry>
@@ -1083,8 +1083,8 @@ mounted(){
         <category>记录</category>
       </categories>
       <tags>
-        <tag>前端</tag>
         <tag>记录</tag>
+        <tag>前端</tag>
         <tag>vue</tag>
       </tags>
   </entry>
@@ -1639,8 +1639,8 @@ mounted(){
         <category>记录</category>
       </categories>
       <tags>
-        <tag>前端</tag>
         <tag>记录</tag>
+        <tag>前端</tag>
       </tags>
   </entry>
   <entry>

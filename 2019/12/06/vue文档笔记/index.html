@@ -1,4 +1,692 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2"><meta name="theme-color" content="#222"><meta name="generator" content="Hexo 4.2.0"><script>var _hmt=_hmt||[];!function(){var e=document.createElement("script");e.src="https://hm.baidu.com/hm.js?724387c702f2fe1e6416cc40649fa3a5";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}()</script><link rel="apple-touch-icon" sizes="180x180" href="/images/LOGO.png"><link rel="icon" type="image/png" sizes="32x32" href="/images/32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/images/16x16.png"><link rel="mask-icon" href="/images/logo.svg" color="#222"><link rel="alternate" href="/atom.xml" title="墨轩技术糖" type="application/atom+xml"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="baidu-site-verification" content="c2KFYiIkF1"><link rel="stylesheet" href="/css/main.css"><link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css"><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/pace-js@1/themes/blue/pace-theme-minimal.css"><script src="//cdn.jsdelivr.net/npm/pace-js@1/pace.min.js"></script><script id="hexo-configurations">var NexT=window.NexT||{},CONFIG={root:"/",scheme:"Gemini",version:"7.4.2",exturl:!1,sidebar:{position:"right",display:"hide",offset:12,onmobile:!1},copycode:{enable:"ture",show_result:!0,style:"mac"},back2top:{enable:!0,sidebar:!0,scrollpercent:"ture"},bookmark:{enable:!1,color:"#222",save:"auto"},fancybox:!1,mediumzoom:!1,lazyload:!1,pangu:!1,algolia:{appID:"",apiKey:"",indexName:"",hits:{per_page:10},labels:{input_placeholder:"Search for Posts",hits_empty:"We didn't find any results for the search: ${query}",hits_stats:"${hits} results found in ${time} ms"}},localsearch:{enable:!0,trigger:"auto",top_n_per_article:5,unescape:!1,preload:!1},path:"search.xml",motion:{enable:!0,async:!1,transition:{post_block:"fadeIn",post_header:"slideDownIn",post_body:"slideDownIn",coll_header:"slideLeftIn",sidebar:"slideUpIn"}},translation:{copy_button:"复制",copy_success:"复制成功",copy_failure:"复制失败"},sidebarPadding:40}</script><meta name="description" content="响应式原理1、vue的特性之一是其非侵入性的响应式系统。数据实现双向绑定。 2、当把一个普通的js对象传入vue实例作为data选项时，vu将遍历此对象的所有属性，并使用object.defineProperty 把这些属性全部转为getter&#x2F;setter。由于object.defineProperty是ES5中无法shim的特性，所以vue不支持IE8及更低版本浏览器的原因。"><meta property="og:type" content="article"><meta property="og:title" content="vue文档笔记"><meta property="og:url" content="https://moxuan.xyz/2019/12/06/vue%E6%96%87%E6%A1%A3%E7%AC%94%E8%AE%B0/index.html"><meta property="og:site_name" content="墨轩技术糖"><meta property="og:description" content="响应式原理1、vue的特性之一是其非侵入性的响应式系统。数据实现双向绑定。 2、当把一个普通的js对象传入vue实例作为data选项时，vu将遍历此对象的所有属性，并使用object.defineProperty 把这些属性全部转为getter&#x2F;setter。由于object.defineProperty是ES5中无法shim的特性，所以vue不支持IE8及更低版本浏览器的原因。"><meta property="og:locale" content="zh_CN"><meta property="article:published_time" content="2019-12-06T11:00:59.000Z"><meta property="article:modified_time" content="2019-12-06T11:08:09.586Z"><meta property="article:author" content="墨轩啊"><meta property="article:tag" content="记录"><meta property="article:tag" content="前端"><meta property="article:tag" content="vue"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://moxuan.xyz/2019/12/06/vue%E6%96%87%E6%A1%A3%E7%AC%94%E8%AE%B0/"><script id="page-configurations">CONFIG.page={sidebar:"",isHome:!1,isPost:!0,isPage:!1,isArchive:!1}</script><meta name="baidu-site-verification" content="c2KFYiIkF1"><meta name="google-site-verification" content="5kgxkt2DF9YLzuaYNnUWuPtH85t70Y672QgJwS22e6o"><title>vue文档笔记 | 墨轩技术糖</title><noscript><style>.sidebar-inner,.use-motion .brand,.use-motion .collection-header,.use-motion .comments,.use-motion .menu-item,.use-motion .pagination,.use-motion .post-block,.use-motion .post-body,.use-motion .post-header{opacity:initial}.use-motion .site-subtitle,.use-motion .site-title{opacity:initial;top:initial}.use-motion .logo-line-before i{left:initial}.use-motion .logo-line-after i{right:initial}</style></noscript></head><body itemscope itemtype="http://schema.org/WebPage"><div class="container use-motion"><div class="headband"></div><header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="header-inner"><div class="site-brand-container"><div class="site-meta"><div><a href="/" class="brand" rel="start"><span class="logo-line-before"><i></i></span> <span class="site-title">墨轩技术糖</span><span class="logo-line-after"><i></i></span></a></div><h1 class="site-subtitle" itemprop="description">心性无染，温文儒雅</h1></div><div class="site-nav-toggle"><div class="toggle" aria-label="切换导航栏"><span class="toggle-line toggle-line-first"></span><span class="toggle-line toggle-line-middle"></span><span class="toggle-line toggle-line-last"></span></div></div></div><nav class="site-nav"><ul id="menu" class="menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-fw fa-home"></i> 首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i> 关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i> 标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i> 分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i> 归档</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-fw fa-sitemap"></i> 站点地图</a></li><li class="menu-item menu-item-建站日志"><a href="/%E5%BB%BA%E7%AB%99%E6%97%A5%E5%BF%97/" rel="section"><i class="fa fa-fw fa-home"></i> 建站日志</a></li><li class="menu-item menu-item-search"><a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i> 搜索</a></li></ul></nav><div class="site-search"><div class="popup search-popup"><div class="search-header"><span class="search-icon"><i class="fa fa-search"></i></span><div class="search-input-container"> <input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="搜索..." spellcheck="false" type="text" id="search-input"></div><span class="popup-btn-close"><i class="fa fa-times-circle"></i></span></div><div id="search-result"></div></div><div class="search-pop-overlay"></div></div></div></header><div class="reading-progress-bar"></div> <a href="https://github.com/moxuan-jst" class="github-corner" title="moxuan-jst GitHub" aria-label="moxuan-jst GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0 0 115 115 130 115 142 142 250 250 250 0Z"></path><path d="M128.3 109C113.8 99.7 119 89.6 119 89.6 122 82.7 120.5 78.6 120.5 78.6 119.2 72 123.4 76.3 123.4 76.3 127.3 80.9 125.5 87.3 125.5 87.3 122.9 97.6 130.6 101.9 134.4 103.2" fill="currentColor" style="transform-origin:130px 106px" class="octo-arm"></path><path d="M115 115C114.9 115.1 118.7 116.5 119.8 115.4L133.7 101.6C136.9 99.2 139.9 98.4 142.2 98.6 133.8 88 127.5 74.4 143.8 58 148.5 53.4 154 51.2 159.7 51 160.3 49.4 163.2 43.6 171.4 40.1 171.4 40.1 176.1 42.5 178.8 56.2 183.1 58.6 187.2 61.8 190.9 65.4 194.5 69 197.7 73.2 200.1 77.6 213.8 80.2 216.3 84.9 216.3 84.9 212.7 93.1 206.9 96 205.4 96.6 205.1 102.4 203 107.8 198.3 112.5 181.9 128.9 168.3 122.5 157.7 114.1 157.9 116.9 156.7 120.9 152.7 124.9L141 136.5C139.8 137.7 141.6 141.9 141.8 141.8Z" fill="currentColor" class="octo-body"></path></svg></a><main class="main"><div class="main-inner"><div class="content-wrap"><div class="content"><div class="posts-expand"><article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN"><link itemprop="mainEntityOfPage" href="https://moxuan.xyz/2019/12/06/vue%E6%96%87%E6%A1%A3%E7%AC%94%E8%AE%B0/"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="image" content="/images/tlogo.jpg"><meta itemprop="name" content="墨轩啊"><meta itemprop="description" content="专注前端技术，包括vue,react，涉猎的主要编程语言是Python,JavaScript，Node，朝着全栈方向努力！。"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="墨轩技术糖"></span><header class="post-header"><h2 class="post-title" itemprop="name headline"> vue文档笔记</h2><div class="post-meta"><div style="margin-top:10px"><span class="post-time"><span class="post-meta-item-icon"><i class="fa fa-keyboard-o"></i> <span title="post.wordcount">本篇博文共计 1.6k 字</span></span></span> <span class="post-time">&nbsp; | &nbsp;<span class="post-meta-item-icon"><i class="fa fa-hourglass-half"></i> <span title="post.min2read">阅读约 6 分钟</span></span></span></div><span class="post-meta-item"><span class="post-meta-item-icon"><i class="fa fa-calendar-o"></i></span> <span class="post-meta-item-text">发表于</span> <time title="创建时间：2019-12-06 19:00:59 / 修改时间：19:08:09" itemprop="dateCreated datePublished" datetime="2019-12-06T19:00:59+08:00">2019-12-06</time></span><span class="post-meta-item"><span class="post-meta-item-icon"><i class="fa fa-folder-o"></i></span> <span class="post-meta-item-text">分类于</span> <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span> ， <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E5%89%8D%E7%AB%AF/vue/" itemprop="url" rel="index"><span itemprop="name">vue</span></a></span> ， <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E5%89%8D%E7%AB%AF/vue/%E8%AE%B0%E5%BD%95/" itemprop="url" rel="index"><span itemprop="name">记录</span></a></span></span><span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display:none"><span class="post-meta-item-icon"><i class="fa fa-eye"></i></span> <span class="post-meta-item-text">阅读次数：</span><span id="busuanzi_value_page_pv"></span></span></div></header><div class="post-body" itemprop="articleBody"><h2 id="响应式原理"><a href="#响应式原理" class="headerlink" title="响应式原理"></a>响应式原理</h2><p>1、vue的特性之一是其非侵入性的响应式系统。数据实现双向绑定。</p><p>2、当把一个普通的js对象传入vue实例作为data选项时，vu将遍历此对象的所有属性，并使用<code>object.defineProperty</code> 把这些属性全部转为<code>getter/setter</code>。由于<code>object.defineProperty</code>是ES5中无法shim的特性，所以vue不支持IE8及更低版本浏览器的原因。</p><a id="more"></a><h3 id="声明响应式属性"><a href="#声明响应式属性" class="headerlink" title="声明响应式属性"></a>声明响应式属性</h3><p>1、vue无法检测到对象属性的添加或删除</p><p>2、对于已建立的实例，vue不允许动态添加根级别的响应式属性。但是，可以使用<code>vm.$set</code>实例方法向嵌套对象添加响应式属性。</p><p>3、基于上一条原因，必须在初始化实例前声明所有根级响应式属性。</p><h3 id="异步更新队列"><a href="#异步更新队列" class="headerlink" title="异步更新队列"></a>异步更新队列</h3><p>1、vue更新DOM是异步执行的。</p><p>2、同一个<code>watcher</code>被多次触发，只会被推入队列一次。</p><p>3、vue鼓励使用“数据驱动”的方式，避免直接接触DOM，但不得不操作DOM时，为了在数据变化之后等待vue完成更新DOM，可以在数据变化之后使用<code>Vue.nextTick(callback)</code>。这样回调函数将在DOM更新完成后被调用。<br>4、在组件中使用<code>vm.$nextTick()</code>实例方法，不需要全局Vue，并且回调函数中的<code>this</code>自动绑定到当前Vue实例上。<br>5、<code>$nextTick()</code>返回一个<code>Promise</code>对象，可以使用<code>async/await</code>语法处理。</p><h2 id="vue实例"><a href="#vue实例" class="headerlink" title="vue实例"></a>vue实例</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    el: <span class="string">"#app"</span>,</span><br><span class="line">    data: &#123;</span><br><span class="line">        message: <span class="string">'hi'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure><p><code>Object.freeze()</code>会阻止修改现有属性，也意味着响应系统无法再追踪变化</p><h3 id="vue生命周期"><a href="#vue生命周期" class="headerlink" title="vue生命周期"></a>vue生命周期</h3><p><code>beforeCreate</code></p><p><code>created</code></p><p><code>beforeMount</code></p><p><code>mounted</code></p><p><code>beforeUpdate</code></p><p><code>updated</code></p><p><code>beforeDestroy</code></p><p><code>destroy</code></p><h4 id="vue生命周期钩子函数"><a href="#vue生命周期钩子函数" class="headerlink" title="vue生命周期钩子函数"></a>vue生命周期钩子函数</h4><p>1、vue钩子函数就是在生命周期不同阶段被调用。</p><p>2、生命周期钩子的<code>this</code>上下文指向调用它的vue实例。</p><p>3、不要在选项属性或回调上使用箭头函数。因为箭头函数的<code>this</code>指向<code>window</code>。</p><h2 id="模板语法"><a href="#模板语法" class="headerlink" title="模板语法"></a>模板语法</h2><p>1.插值</p><p>使用<code>{ {}}</code>进行数据绑定</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">span</span>&gt;</span>&#123; &#123;msg&#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure><p>可以通过<code>v-once</code>指令，只执行一次性的数据插入。</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">v-once</span>&gt;</span>&#123; &#123;msg&#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure><p>如果需要输出真正的HTML，可以使用<code>v-html</code>指令</p><p>在<code>{ {}}</code>中可以写js表达式，但只能包含单个表达式</p><p>2.指令</p><p>指令是带有<code>v-</code>前缀的特殊特性。响应式的作用与DOM。</p><ul><li><p>参数</p><ul><li>一个指令更够接受一个参数，在指令名称前以冒号<code>：</code>表示。</li></ul></li><li><p>动态参数</p><ul><li><p>在指令后用<code>[]</code>表示</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">v-bind:</span>[<span class="attr">attributeName</span>]=<span class="string">'url'</span>&gt;</span>...<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure><ul><li><p>动态参数求出的是<code>字符串</code>，异常时为<code>null</code></p></li><li><p>空格和引号在参数中是无效的，会触发编译警告。可以使用计算属性代替复杂表达式。</p></li><li><p>使用模板是避免使用大写字符，应为在渲染时会被浏览器强制转换为小写。</p></li></ul></li></ul></li></ul><h2 id="计算属性computed"><a href="#计算属性computed" class="headerlink" title="计算属性computed"></a>计算属性<code>computed</code></h2><p>首先，将同一函数定义成计算属性<code>computed</code>或者方法<code>methods</code>，两种方式得到的最终结果是一致的，不同的是计算属性可以基于响应式依赖进行缓存。也就是多次访问计算属性时会立即返回结果，不必在执行函数。</p><p>由于<code>Date.now()</code>不是响应式依赖，所以每次重新渲染时总会执行。(eg:computed.html)</p><p>计算属性默认是getter，在需要时可以提供setter。(eg:getter_setter.html)</p><h2 id="监听属性watch"><a href="#监听属性watch" class="headerlink" title="监听属性watch"></a>监听属性<code>watch</code></h2><p>当需要异步操作或者开销较大时，可以使用<code>watch</code>属性对状态进行监听，可以设置一个中间状态。</p><h2 id="class和style绑定"><a href="#class和style绑定" class="headerlink" title="class和style绑定"></a><code>class</code>和<code>style</code>绑定</h2><p>因为class和style都是属性，所以可以使用<code>v-bind</code>处理：可以是对象，也可以是数组。</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> </span></span><br><span class="line"><span class="tag">    <span class="attr">class</span> =<span class="string">"class"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">v-bind:class</span>=<span class="string">"&#123;active: true&#125;"</span></span></span><br><span class="line"><span class="tag">&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure><p><code>v-bind:class</code>可以与普通class属性共存。</p><p>如果想要根据条件切换列表中的class，可以使用三元表达式</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-bind:class</span>=<span class="string">"[isActive ? activeClass : '', errorClass]"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure><p>或者</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-bind:class</span>=<span class="string">"[&#123;active: isActive&#125;, errorClass]"</span>&gt;</span></span><br></pre></td></tr></table></figure><p><code>style</code>的语法与<code>class</code>一致。</p><p>当<code>v-bind：style</code>使用需要添加浏览器前缀的CSS属性时，Vue会 自动添加相应的前缀。</p><h3 id="条件渲染"><a href="#条件渲染" class="headerlink" title="条件渲染"></a>条件渲染</h3><p>1、<code>v-if</code>：条件性的渲染一块内容，这块内容只会在指令的表达式返回 <code>truthy</code> 值的时候被渲染。可与<code>v-else</code>，<code>v-else-if</code>搭配使用。</p><p>当需要切换多个元素时，可以与<code>&lt;template&gt;</code>标签搭配使用，最终渲染结果不包括标签。</p><p><code>key</code>属性可以将个元素相互独立。</p><p>2、<code>v-show</code>：与v-if类似，不同的是，<code>v-if</code>会适当的将组件销毁，如果初始渲染时条件为<code>false</code>，则不会渲染，知道使用时才会渲染。而<code>v-show</code>只是简单的切换元素的CSS属性的<code>display</code>，会在初始化时就渲染元素。</p><h3 id="列表渲染"><a href="#列表渲染" class="headerlink" title="列表渲染"></a>列表渲染</h3><p>1、<code>v-for</code></p><p>可以对一个数组或者对象进行遍历，然后对其进行渲染。</p><ul><li>对于数组，可以有两个参数：（item， index）</li><li>对于对象，可以有三个参数：（name，value, index）</li></ul><p>当重用或者重新排序现有元素时，需要为每一项提供一个唯一的<code>key</code>属性。需要注意的是，key的值需要使用字符串或数值类型的值。</p><p>2、数组更新检测</p><p>vue对数组的一些方法进行包装，使其可以触发视图更新。</p><p><code>push()</code>,<code>pop()</code>,<code>shift()</code>,<code>unshift()</code>,<code>splice()</code>,<code>sort()</code>,<code>reverse()</code></p><p><code>filter()</code>,<code>concat()</code>,<code>slice()</code></p><p><strong>注意</strong><br>1、数组变更检测</p><p>当利用索引对数组进行直接设置时，和修改数组长度时，vue检测不到。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    data:&#123;</span><br><span class="line">        items:[<span class="string">'a'</span>, <span class="string">'b'</span>]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 这些vue不会响应</span></span><br><span class="line">vm.items[<span class="number">1</span>] = <span class="string">'x'</span>;</span><br><span class="line">vm.items.length = <span class="number">2</span></span><br></pre></td></tr></table></figure><p>为了索引问题，可以使用全局方法<code>Vue.set</code>,或者实例方法<code>vm.$set</code>。</p><p>为了修改数组长度，可以使用<code>splice</code></p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vm.items.splice(newLength)</span><br></pre></td></tr></table></figure><p>2、对象变更检测</p><p>Vue不能检测对象属性的添加或删除。</p><p>可以使用全局方法<code>Vue.set</code>,或者实例方法<code>Vue.$set</code>进行对台设置。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vm.$<span class="keyword">set</span>(vm.userProfile, 'age', 23)</span><br></pre></td></tr></table></figure><p>如果需要对已有对象赋值多个新属性，可以使用<code>Object.assign()</code>。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vm.userProfile = <span class="built_in">Object</span>.assign(&#123;&#125;, vm.userProfile, &#123;</span><br><span class="line">    age:<span class="number">23</span>,</span><br><span class="line">    like: <span class="string">'Vue'</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure><blockquote><p>不推荐在同一元素上使用<code>v-for</code>和<code>v-if</code></p></blockquote><p>在同一节点下，<code>v-for</code>的优先级比<code>v-if</code>更高。</p></div><footer class="post-footer"><div class="post-tags"><a href="/tags/%E8%AE%B0%E5%BD%95/" rel="tag"><i class="fa fa-tag"></i> 记录</a><a href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag"><i class="fa fa-tag"></i> 前端</a><a href="/tags/vue/" rel="tag"><i class="fa fa-tag"></i> vue</a></div><div class="post-nav"><div class="post-nav-next post-nav-item"><a href="/2019/12/02/%E5%85%B3%E4%BA%8Ehexo%E4%B8%AD%E4%BD%BF%E7%94%A8-%E6%8A%A5%E9%94%99%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" rel="next" title="关于hexo中使用{{}}报错的解决方案"><i class="fa fa-chevron-left"></i> 关于hexo中使用{{}}报错的解决方案</a></div><span class="post-nav-divider"></span><div class="post-nav-prev post-nav-item"> <a href="/2019/12/13/vue%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%EF%BC%88%E4%B8%80%EF%BC%89/" rel="prev" title="vue源码分析（一）">vue源码分析（一）<i class="fa fa-chevron-right"></i></a></div></div></footer></article></div></div><div class="comments" id="gitalk-container"></div></div><div class="toggle sidebar-toggle"><span class="toggle-line toggle-line-first"></span><span class="toggle-line toggle-line-middle"></span><span class="toggle-line toggle-line-last"></span></div><aside class="sidebar"><div class="sidebar-inner"><ul class="sidebar-nav motion-element"><li class="sidebar-nav-toc"> 文章目录</li><li class="sidebar-nav-overview"> 站点概览</li></ul><div class="post-toc-wrap sidebar-panel"><div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#响应式原理"><span class="nav-number">1.</span> <span class="nav-text">响应式原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#声明响应式属性"><span class="nav-number">1.1.</span> <span class="nav-text">声明响应式属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#异步更新队列"><span class="nav-number">1.2.</span> <span class="nav-text">异步更新队列</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vue实例"><span class="nav-number">2.</span> <span class="nav-text">vue实例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#vue生命周期"><span class="nav-number">2.1.</span> <span class="nav-text">vue生命周期</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#vue生命周期钩子函数"><span class="nav-number">2.1.1.</span> <span class="nav-text">vue生命周期钩子函数</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模板语法"><span class="nav-number">3.</span> <span class="nav-text">模板语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#计算属性computed"><span class="nav-number">4.</span> <span class="nav-text">计算属性computed</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#监听属性watch"><span class="nav-number">5.</span> <span class="nav-text">监听属性watch</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#class和style绑定"><span class="nav-number">6.</span> <span class="nav-text">class和style绑定</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#条件渲染"><span class="nav-number">6.1.</span> <span class="nav-text">条件渲染</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#列表渲染"><span class="nav-number">6.2.</span> <span class="nav-text">列表渲染</span></a></li></ol></li></ol></div></div><div class="site-overview-wrap sidebar-panel"><div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person"> <img class="site-author-image" itemprop="image" alt="墨轩啊" src="/images/tlogo.jpg"><p class="site-author-name" itemprop="name">墨轩啊</p><div class="site-description" itemprop="description">专注前端技术，包括vue,react，涉猎的主要编程语言是Python,JavaScript，Node，朝着全栈方向努力！。</div></div><div class="site-state-wrap motion-element"><nav class="site-state"><div class="site-state-item site-state-posts"> <a href="/archives/"><span class="site-state-item-count">30</span> <span class="site-state-item-name">日志</span></a></div><div class="site-state-item site-state-categories"> <a href="/categories/"><span class="site-state-item-count">42</span> <span class="site-state-item-name">分类</span></a></div><div class="site-state-item site-state-tags"> <a href="/tags/"><span class="site-state-item-count">24</span> <span class="site-state-item-name">标签</span></a></div></nav></div><div class="feed-link motion-element"><a href="/atom.xml" rel="alternate"><i class="fa fa-rss"></i> RSS</a></div><div class="links-of-author motion-element"><span class="links-of-author-item"><a href="https://github.com/moxuan-jst" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;moxuan-jst" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i> GitHub</a></span><span class="links-of-author-item"><a href="mailto:moxuanjst@foxmail.com" title="E-Mail &amp;rarr; mailto:moxuanjst@foxmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i> E-Mail</a></span><span class="links-of-author-item"><a href="https://weibo.com/2690290777/profile?topnav=1&wvr=6&is_all=1" title="Weibo &amp;rarr; https:&#x2F;&#x2F;weibo.com&#x2F;2690290777&#x2F;profile?topnav&#x3D;1&amp;wvr&#x3D;6&amp;is_all&#x3D;1" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i> Weibo</a></span></div></div><div class="back-to-top motion-element"><i class="fa fa-arrow-up"></i> <span>0%</span></div></div></aside><div id="sidebar-dimmer"></div></div></main><footer class="footer"><link rel="stylesheet" href="/live2d/css/live2d.css"><div id="landlord"><div class="message" style="opacity:0"></div><canvas id="live2d" width="280" height="250" class="live2d"></canvas><div class="hide-button">隐藏</div></div><script type="text/javascript" src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script><script type="text/javascript">var message_Path="/live2d/",home_Path="https://calmcenter.club/"</script><script type="text/javascript" src="/live2d/js/live2d.js"></script><script type="text/javascript" src="/live2d/js/message.js"></script><script type="text/javascript">loadlive2d("live2d","/live2d/model/tia/model.json")</script><script type="text/javascript">loadlive2d("live2d","/live2d/model/xuexiaoban/model.json")</script><div class="footer-inner"><div class="copyright"> &copy; <span itemprop="copyrightYear">2020</span><span class="with-love"><i class="fa fa-user"></i></span> <span class="author" itemprop="copyrightHolder">by 墨轩啊</span><div><i class="fa fa-user-md"></i> <span id="busuanzi_container_site_uv">本站访客数:<span id="busuanzi_value_site_pv"></span></span></div> <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span><script>var now=new Date;function createtime(){var n=new Date("10/31/2019 12:00:00");now.setTime(now.getTime()+250),days=(now-n)/1e3/60/60/24,dnum=Math.floor(days),hours=(now-n)/1e3/60/60-24*dnum,hnum=Math.floor(hours),1==String(hnum).length&&(hnum="0"+hnum),minutes=(now-n)/1e3/60-1440*dnum-60*hnum,mnum=Math.floor(minutes),1==String(mnum).length&&(mnum="0"+mnum),seconds=(now-n)/1e3-86400*dnum-3600*hnum-60*mnum,snum=Math.round(seconds),1==String(snum).length&&(snum="0"+snum),document.getElementById("timeDate").innerHTML="本站已安全运行 "+dnum+" 天 ",document.getElementById("times").innerHTML=hnum+" 小时 "+mnum+" 分 "+snum+" 秒"}setInterval("createtime()",250)</script></div><div class="busuanzi-count"><script pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span class="post-meta-item" id="busuanzi_container_site_uv" style="display:none"><span class="post-meta-item-icon"><i class="fa fa-user"></i></span><span class="site-uv" title="总访客量"><span id="busuanzi_value_site_uv"></span></span></span></div></div></footer></div><script color="113, 113, 113" opacity="0.5" zindex="-1" count="99" src="//cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-nest@1/canvas-nest.min.js"></script><script src="/lib/anime.min.js"></script><script src="/lib/pjax/pjax.min.js"></script><script src="/lib/velocity/velocity.min.js"></script><script src="/lib/velocity/velocity.ui.min.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/pisces.js"></script><script src="/js/next-boot.js"></script><script>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?724387c702f2fe1e6416cc40649fa3a5";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/LOGO.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="alternate" href="/atom.xml" title="墨轩技术糖" type="application/atom+xml">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="baidu-site-verification" content="c2KFYiIkF1">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/pace-js@1/themes/blue/pace-theme-minimal.css">
+  <script src="//cdn.jsdelivr.net/npm/pace-js@1/pace.min.js"></script>
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.4.2',
+    exturl: false,
+    sidebar: {"position":"right","display":"hide","offset":12,"onmobile":false},
+    copycode: {"enable":"ture","show_result":true,"style":"mac"},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":"ture"},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="响应式原理1、vue的特性之一是其非侵入性的响应式系统。数据实现双向绑定。 2、当把一个普通的js对象传入vue实例作为data选项时，vu将遍历此对象的所有属性，并使用object.defineProperty 把这些属性全部转为getter&#x2F;setter。由于object.defineProperty是ES5中无法shim的特性，所以vue不支持IE8及更低版本浏览器的原因。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue文档笔记">
+<meta property="og:url" content="https://moxuan.xyz/2019/12/06/vue%E6%96%87%E6%A1%A3%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="墨轩技术糖">
+<meta property="og:description" content="响应式原理1、vue的特性之一是其非侵入性的响应式系统。数据实现双向绑定。 2、当把一个普通的js对象传入vue实例作为data选项时，vu将遍历此对象的所有属性，并使用object.defineProperty 把这些属性全部转为getter&#x2F;setter。由于object.defineProperty是ES5中无法shim的特性，所以vue不支持IE8及更低版本浏览器的原因。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-12-06T11:00:59.000Z">
+<meta property="article:modified_time" content="2019-12-06T11:08:09.586Z">
+<meta property="article:author" content="墨轩啊">
+<meta property="article:tag" content="前端">
+<meta property="article:tag" content="记录">
+<meta property="article:tag" content="vue">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://moxuan.xyz/2019/12/06/vue%E6%96%87%E6%A1%A3%E7%AC%94%E8%AE%B0/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <meta name="baidu-site-verification" content="c2KFYiIkF1" />
+  <meta name="google-site-verification" content="5kgxkt2DF9YLzuaYNnUWuPtH85t70Y672QgJwS22e6o" />
+  <title>vue文档笔记 | 墨轩技术糖</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">墨轩技术糖</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <h1 class="site-subtitle" itemprop="description">心性无染，温文儒雅</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-fw fa-sitemap"></i>站点地图</a>
+
+  </li>
+        <li class="menu-item menu-item-建站日志">
+
+    <a href="/%E5%BB%BA%E7%AB%99%E6%97%A5%E5%BF%97/" rel="section"><i class="fa fa-fw fa-home"></i>建站日志</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/moxuan-jst" class="github-corner" title="moxuan-jst GitHub" aria-label="moxuan-jst GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://moxuan.xyz/2019/12/06/vue%E6%96%87%E6%A1%A3%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/tlogo.jpg">
+      <meta itemprop="name" content="墨轩啊">
+      <meta itemprop="description" content="专注前端技术，包括vue,react，涉猎的主要编程语言是Python,JavaScript，Node，朝着全栈方向努力！。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="墨轩技术糖">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          vue文档笔记
+        </h2>
+
+        <div class="post-meta">
+        
+
+
+        <div style="margin-top:10px;">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-keyboard-o"></i>
+                <span title="post.wordcount">
+                  本篇博文共计 1.6k 字
+                </span>
+            </span>
+          </span>        
+          <span class="post-time">
+            &nbsp; | &nbsp;
+            <span class="post-meta-item-icon">
+              <i class="fa fa-hourglass-half"></i>
+              <span title="post.min2read">
+                阅读约 6 分钟
+              </span>
+            </span>
+          </span>
+        </div>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2019-12-06 19:00:59 / 修改时间：19:08:09" itemprop="dateCreated datePublished" datetime="2019-12-06T19:00:59+08:00">2019-12-06</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/vue/" itemprop="url" rel="index">
+                    <span itemprop="name">vue</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/vue/%E8%AE%B0%E5%BD%95/" itemprop="url" rel="index">
+                    <span itemprop="name">记录</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="响应式原理"><a href="#响应式原理" class="headerlink" title="响应式原理"></a>响应式原理</h2><p>1、vue的特性之一是其非侵入性的响应式系统。数据实现双向绑定。</p>
+<p>2、当把一个普通的js对象传入vue实例作为data选项时，vu将遍历此对象的所有属性，并使用<code>object.defineProperty</code> 把这些属性全部转为<code>getter/setter</code>。由于<code>object.defineProperty</code>是ES5中无法shim的特性，所以vue不支持IE8及更低版本浏览器的原因。</p>
+<a id="more"></a>
+
+<h3 id="声明响应式属性"><a href="#声明响应式属性" class="headerlink" title="声明响应式属性"></a>声明响应式属性</h3><p>1、vue无法检测到对象属性的添加或删除</p>
+<p>2、对于已建立的实例，vue不允许动态添加根级别的响应式属性。但是，可以使用<code>vm.$set</code>实例方法向嵌套对象添加响应式属性。</p>
+<p>3、基于上一条原因，必须在初始化实例前声明所有根级响应式属性。</p>
+<h3 id="异步更新队列"><a href="#异步更新队列" class="headerlink" title="异步更新队列"></a>异步更新队列</h3><p>1、vue更新DOM是异步执行的。</p>
+<p>2、同一个<code>watcher</code>被多次触发，只会被推入队列一次。</p>
+<p>3、vue鼓励使用“数据驱动”的方式，避免直接接触DOM，但不得不操作DOM时，为了在数据变化之后等待vue完成更新DOM，可以在数据变化之后使用<code>Vue.nextTick(callback)</code>。这样回调函数将在DOM更新完成后被调用。<br>4、在组件中使用<code>vm.$nextTick()</code>实例方法，不需要全局Vue，并且回调函数中的<code>this</code>自动绑定到当前Vue实例上。<br>5、<code>$nextTick()</code>返回一个<code>Promise</code>对象，可以使用<code>async/await</code>语法处理。</p>
+<h2 id="vue实例"><a href="#vue实例" class="headerlink" title="vue实例"></a>vue实例</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    el: <span class="string">"#app"</span>,</span><br><span class="line">    data: &#123;</span><br><span class="line">        message: <span class="string">'hi'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p><code>Object.freeze()</code>会阻止修改现有属性，也意味着响应系统无法再追踪变化</p>
+<h3 id="vue生命周期"><a href="#vue生命周期" class="headerlink" title="vue生命周期"></a>vue生命周期</h3><p><code>beforeCreate</code></p>
+<p><code>created</code></p>
+<p><code>beforeMount</code></p>
+<p><code>mounted</code></p>
+<p><code>beforeUpdate</code></p>
+<p><code>updated</code></p>
+<p><code>beforeDestroy</code></p>
+<p><code>destroy</code></p>
+<h4 id="vue生命周期钩子函数"><a href="#vue生命周期钩子函数" class="headerlink" title="vue生命周期钩子函数"></a>vue生命周期钩子函数</h4><p>1、vue钩子函数就是在生命周期不同阶段被调用。</p>
+<p>2、生命周期钩子的<code>this</code>上下文指向调用它的vue实例。</p>
+<p>3、不要在选项属性或回调上使用箭头函数。因为箭头函数的<code>this</code>指向<code>window</code>。</p>
+<h2 id="模板语法"><a href="#模板语法" class="headerlink" title="模板语法"></a>模板语法</h2><p>1.插值 </p>
+<p>使用<code>{ {}}</code>进行数据绑定</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">span</span>&gt;</span>&#123; &#123;msg&#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>可以通过<code>v-once</code>指令，只执行一次性的数据插入。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">v-once</span>&gt;</span>&#123; &#123;msg&#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>如果需要输出真正的HTML，可以使用<code>v-html</code>指令</p>
+<p>在<code>{ {}}</code>中可以写js表达式，但只能包含单个表达式</p>
+<p>2.指令</p>
+<p>指令是带有<code>v-</code>前缀的特殊特性。响应式的作用与DOM。</p>
+<ul>
+<li><p>参数</p>
+<ul>
+<li>一个指令更够接受一个参数，在指令名称前以冒号<code>：</code>表示。</li>
+</ul>
+</li>
+<li><p>动态参数</p>
+<ul>
+<li><p>在指令后用<code>[]</code>表示</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">v-bind:</span>[<span class="attr">attributeName</span>]=<span class="string">'url'</span>&gt;</span>...<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>动态参数求出的是<code>字符串</code>，异常时为<code>null</code></p>
+</li>
+<li><p>空格和引号在参数中是无效的，会触发编译警告。可以使用计算属性代替复杂表达式。</p>
+</li>
+<li><p>使用模板是避免使用大写字符，应为在渲染时会被浏览器强制转换为小写。</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="计算属性computed"><a href="#计算属性computed" class="headerlink" title="计算属性computed"></a>计算属性<code>computed</code></h2><p>首先，将同一函数定义成计算属性<code>computed</code>或者方法<code>methods</code>，两种方式得到的最终结果是一致的，不同的是计算属性可以基于响应式依赖进行缓存。也就是多次访问计算属性时会立即返回结果，不必在执行函数。</p>
+<p>由于<code>Date.now()</code>不是响应式依赖，所以每次重新渲染时总会执行。(eg:computed.html)</p>
+<p>计算属性默认是getter，在需要时可以提供setter。(eg:getter_setter.html)</p>
+<h2 id="监听属性watch"><a href="#监听属性watch" class="headerlink" title="监听属性watch"></a>监听属性<code>watch</code></h2><p>当需要异步操作或者开销较大时，可以使用<code>watch</code>属性对状态进行监听，可以设置一个中间状态。</p>
+<h2 id="class和style绑定"><a href="#class和style绑定" class="headerlink" title="class和style绑定"></a><code>class</code>和<code>style</code>绑定</h2><p>因为class和style都是属性，所以可以使用<code>v-bind</code>处理：可以是对象，也可以是数组。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> </span></span><br><span class="line"><span class="tag">    <span class="attr">class</span> =<span class="string">"class"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">v-bind:class</span>=<span class="string">"&#123;active: true&#125;"</span></span></span><br><span class="line"><span class="tag">&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><code>v-bind:class</code>可以与普通class属性共存。</p>
+<p>如果想要根据条件切换列表中的class，可以使用三元表达式</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-bind:class</span>=<span class="string">"[isActive ? activeClass : '', errorClass]"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>或者</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-bind:class</span>=<span class="string">"[&#123;active: isActive&#125;, errorClass]"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><code>style</code>的语法与<code>class</code>一致。</p>
+<p>当<code>v-bind：style</code>使用需要添加浏览器前缀的CSS属性时，Vue会 自动添加相应的前缀。</p>
+<h3 id="条件渲染"><a href="#条件渲染" class="headerlink" title="条件渲染"></a>条件渲染</h3><p>1、<code>v-if</code>：条件性的渲染一块内容，这块内容只会在指令的表达式返回 <code>truthy</code> 值的时候被渲染。可与<code>v-else</code>，<code>v-else-if</code>搭配使用。</p>
+<p>当需要切换多个元素时，可以与<code>&lt;template&gt;</code>标签搭配使用，最终渲染结果不包括标签。</p>
+<p><code>key</code>属性可以将个元素相互独立。</p>
+<p>2、<code>v-show</code>：与v-if类似，不同的是，<code>v-if</code>会适当的将组件销毁，如果初始渲染时条件为<code>false</code>，则不会渲染，知道使用时才会渲染。而<code>v-show</code>只是简单的切换元素的CSS属性的<code>display</code>，会在初始化时就渲染元素。</p>
+<h3 id="列表渲染"><a href="#列表渲染" class="headerlink" title="列表渲染"></a>列表渲染</h3><p>1、<code>v-for</code></p>
+<p>可以对一个数组或者对象进行遍历，然后对其进行渲染。</p>
+<ul>
+<li>对于数组，可以有两个参数：（item， index）</li>
+<li>对于对象，可以有三个参数：（name，value, index）</li>
+</ul>
+<p>当重用或者重新排序现有元素时，需要为每一项提供一个唯一的<code>key</code>属性。需要注意的是，key的值需要使用字符串或数值类型的值。</p>
+<p>2、数组更新检测</p>
+<p>vue对数组的一些方法进行包装，使其可以触发视图更新。</p>
+<p><code>push()</code>,<code>pop()</code>,<code>shift()</code>,<code>unshift()</code>,<code>splice()</code>,<code>sort()</code>,<code>reverse()</code></p>
+<p><code>filter()</code>,<code>concat()</code>,<code>slice()</code></p>
+<p><strong>注意</strong><br>1、数组变更检测</p>
+<p>当利用索引对数组进行直接设置时，和修改数组长度时，vue检测不到。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    data:&#123;</span><br><span class="line">        items:[<span class="string">'a'</span>, <span class="string">'b'</span>]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 这些vue不会响应</span></span><br><span class="line">vm.items[<span class="number">1</span>] = <span class="string">'x'</span>;</span><br><span class="line">vm.items.length = <span class="number">2</span></span><br></pre></td></tr></table></figure>
+
+<p>为了索引问题，可以使用全局方法<code>Vue.set</code>,或者实例方法<code>vm.$set</code>。</p>
+<p>为了修改数组长度，可以使用<code>splice</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vm.items.splice(newLength)</span><br></pre></td></tr></table></figure>
+
+<p>2、对象变更检测</p>
+<p>Vue不能检测对象属性的添加或删除。</p>
+<p>可以使用全局方法<code>Vue.set</code>,或者实例方法<code>Vue.$set</code>进行对台设置。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vm.$<span class="keyword">set</span>(vm.userProfile, 'age', 23)</span><br></pre></td></tr></table></figure>
+
+<p>如果需要对已有对象赋值多个新属性，可以使用<code>Object.assign()</code>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vm.userProfile = <span class="built_in">Object</span>.assign(&#123;&#125;, vm.userProfile, &#123;</span><br><span class="line">    age:<span class="number">23</span>,</span><br><span class="line">    like: <span class="string">'Vue'</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>不推荐在同一元素上使用<code>v-for</code>和<code>v-if</code></p>
+</blockquote>
+<p>在同一节点下，<code>v-for</code>的优先级比<code>v-if</code>更高。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag"><i class="fa fa-tag"></i> 前端</a>
+              <a href="/tags/%E8%AE%B0%E5%BD%95/" rel="tag"><i class="fa fa-tag"></i> 记录</a>
+              <a href="/tags/vue/" rel="tag"><i class="fa fa-tag"></i> vue</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/2019/12/02/%E5%85%B3%E4%BA%8Ehexo%E4%B8%AD%E4%BD%BF%E7%94%A8-%E6%8A%A5%E9%94%99%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" rel="next" title="关于hexo中使用{{}}报错的解决方案">
+                  <i class="fa fa-chevron-left"></i> 关于hexo中使用{{}}报错的解决方案
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+                <a href="/2019/12/13/vue%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%EF%BC%88%E4%B8%80%EF%BC%89/" rel="prev" title="vue源码分析（一）">
+                  vue源码分析（一） <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#响应式原理"><span class="nav-number">1.</span> <span class="nav-text">响应式原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#声明响应式属性"><span class="nav-number">1.1.</span> <span class="nav-text">声明响应式属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#异步更新队列"><span class="nav-number">1.2.</span> <span class="nav-text">异步更新队列</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vue实例"><span class="nav-number">2.</span> <span class="nav-text">vue实例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#vue生命周期"><span class="nav-number">2.1.</span> <span class="nav-text">vue生命周期</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#vue生命周期钩子函数"><span class="nav-number">2.1.1.</span> <span class="nav-text">vue生命周期钩子函数</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模板语法"><span class="nav-number">3.</span> <span class="nav-text">模板语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#计算属性computed"><span class="nav-number">4.</span> <span class="nav-text">计算属性computed</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#监听属性watch"><span class="nav-number">5.</span> <span class="nav-text">监听属性watch</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#class和style绑定"><span class="nav-number">6.</span> <span class="nav-text">class和style绑定</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#条件渲染"><span class="nav-number">6.1.</span> <span class="nav-text">条件渲染</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#列表渲染"><span class="nav-number">6.2.</span> <span class="nav-text">列表渲染</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="墨轩啊"
+    src="/images/tlogo.jpg">
+  <p class="site-author-name" itemprop="name">墨轩啊</p>
+  <div class="site-description" itemprop="description">专注前端技术，包括vue,react，涉猎的主要编程语言是Python,JavaScript，Node，朝着全栈方向努力！。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">30</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/moxuan-jst" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;moxuan-jst" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:moxuanjst@foxmail.com" title="E-Mail &amp;rarr; mailto:moxuanjst@foxmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/2690290777/profile?topnav=1&wvr=6&is_all=1" title="Weibo &amp;rarr; https:&#x2F;&#x2F;weibo.com&#x2F;2690290777&#x2F;profile?topnav&#x3D;1&amp;wvr&#x3D;6&amp;is_all&#x3D;1" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+      </span>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+       <link rel="stylesheet" href="/live2d/css/live2d.css" />
+       <div id="landlord">
+        <div class="message" style="opacity:0"></div>
+        <canvas id="live2d" width="280" height="250" class="live2d"></canvas>
+        <div class="hide-button">隐藏</div>
+      </div>
+      <script type="text/javascript" src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+      <script type="text/javascript">
+        var message_Path = '/live2d/'
+        var home_Path = 'https://calmcenter.club/'
+      </script>
+      <script type="text/javascript" src="/live2d/js/live2d.js"></script>
+      <script type="text/javascript" src="/live2d/js/message.js"></script>
+      <script type="text/javascript">
+        loadlive2d("live2d", "/live2d/model/tia/model.json");
+      </script>
+      <script type="text/javascript">
+        loadlive2d("live2d", "/live2d/model/xuexiaoban/model.json");
+      </script>
+
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">by 墨轩啊</span>
+  <div>
+    <i class="fa fa-user-md"></i>
+    <span id="busuanzi_container_site_uv">
+      本站访客数:<span id="busuanzi_value_site_pv"></span>
+    </span>
+  </div>
+  <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+    <script>
+        var now = new Date(); 
+        function createtime() { 
+            var grt= new Date("10/31/2019 12:00:00");//此处修改你的建站时间或者网站上线时间 
+            now.setTime(now.getTime()+250); 
+            days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+            hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+            if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+            mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+            seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+            snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+            document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 "; 
+            document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+        } 
+    setInterval("createtime()",250);
+    </script>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='113, 113, 113' opacity='0.5' zIndex='-1' count='99' src="//cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-nest@1/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+  <script>
 var pjax = new Pjax({
   selectors: [
     'head title',
@@ -53,7 +741,51 @@ window.addEventListener('pjax:success', () => {
   }
   NexT.utils.updateSidebarPosition();
 });
-</script><script pjax>!function(){var t=document.createElement("script"),e=window.location.protocol.split(":")[0];t.src="https"===e?"https://zz.bdstatic.com/linksubmit/push.js":"http://push.zhanzhang.baidu.com/push.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}()</script><script src="/js/local-search.js"></script><div id="pjax"><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css"><script>
+</script>
+
+
+
+
+  
+  <script pjax>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+
+  
+
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
   NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
     var gitalk = new Gitalk({
       clientID: '131702b03dc5fc7d59ec',
@@ -67,4 +799,8 @@ window.addEventListener('pjax:success', () => {
     });
     gitalk.render('gitalk-container');
   }, window.Gitalk);
-</script></div></body></html>
+</script>
+
+    </div>
+</body>
+</html>

@@ -128,9 +128,9 @@
       <category term="总结" scheme="https://moxuan.xyz/categories/%E8%AE%B0%E5%BD%95/%E6%80%BB%E7%BB%93/"/>
     
     
-      <category term="记录" scheme="https://moxuan.xyz/tags/%E8%AE%B0%E5%BD%95/"/>
-    
       <category term="总结" scheme="https://moxuan.xyz/tags/%E6%80%BB%E7%BB%93/"/>
+    
+      <category term="记录" scheme="https://moxuan.xyz/tags/%E8%AE%B0%E5%BD%95/"/>
     
   </entry>
   
@@ -563,9 +563,9 @@
       <category term="webpack" scheme="https://moxuan.xyz/categories/%E5%89%8D%E7%AB%AF/%E8%AE%B0%E5%BD%95/webpack/"/>
     
     
-      <category term="前端" scheme="https://moxuan.xyz/tags/%E5%89%8D%E7%AB%AF/"/>
-    
       <category term="笔记" scheme="https://moxuan.xyz/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="前端" scheme="https://moxuan.xyz/tags/%E5%89%8D%E7%AB%AF/"/>
     
       <category term="webpack" scheme="https://moxuan.xyz/tags/webpack/"/>
     
@@ -594,11 +594,11 @@
       <category term="记录" scheme="https://moxuan.xyz/categories/%E5%89%8D%E7%AB%AF/gulp/%E8%AE%B0%E5%BD%95/"/>
     
     
-      <category term="前端" scheme="https://moxuan.xyz/tags/%E5%89%8D%E7%AB%AF/"/>
-    
       <category term="笔记" scheme="https://moxuan.xyz/tags/%E7%AC%94%E8%AE%B0/"/>
     
       <category term="gulp" scheme="https://moxuan.xyz/tags/gulp/"/>
+    
+      <category term="前端" scheme="https://moxuan.xyz/tags/%E5%89%8D%E7%AB%AF/"/>
     
   </entry>
   

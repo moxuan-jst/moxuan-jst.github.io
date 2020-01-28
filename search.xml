@@ -491,8 +491,8 @@
         <category>vue</category>
       </categories>
       <tags>
-        <tag>记录</tag>
         <tag>前端</tag>
+        <tag>记录</tag>
         <tag>vue</tag>
         <tag>源码</tag>
       </tags>
@@ -616,8 +616,8 @@
         <category>记录</category>
       </categories>
       <tags>
-        <tag>记录</tag>
         <tag>前端</tag>
+        <tag>记录</tag>
         <tag>vue</tag>
       </tags>
   </entry>
@@ -777,8 +777,8 @@
         <category>vueCli</category>
       </categories>
       <tags>
-        <tag>记录</tag>
         <tag>前端</tag>
+        <tag>记录</tag>
         <tag>vue</tag>
       </tags>
   </entry>
@@ -857,8 +857,8 @@
         <category>vueRouter</category>
       </categories>
       <tags>
-        <tag>记录</tag>
         <tag>前端</tag>
+        <tag>记录</tag>
         <tag>vue</tag>
       </tags>
   </entry>
@@ -1083,8 +1083,8 @@ mounted(){
         <category>记录</category>
       </categories>
       <tags>
-        <tag>记录</tag>
         <tag>前端</tag>
+        <tag>记录</tag>
         <tag>vue</tag>
       </tags>
   </entry>
@@ -1199,8 +1199,8 @@ mounted(){
         <category>webpack</category>
       </categories>
       <tags>
-        <tag>笔记</tag>
         <tag>前端</tag>
+        <tag>笔记</tag>
         <tag>webpack</tag>
       </tags>
   </entry>
@@ -1244,9 +1244,9 @@ mounted(){
         <category>记录</category>
       </categories>
       <tags>
+        <tag>前端</tag>
         <tag>笔记</tag>
         <tag>gulp</tag>
-        <tag>前端</tag>
       </tags>
   </entry>
   <entry>
@@ -1639,8 +1639,8 @@ mounted(){
         <category>记录</category>
       </categories>
       <tags>
-        <tag>记录</tag>
         <tag>前端</tag>
+        <tag>记录</tag>
       </tags>
   </entry>
   <entry>
@@ -2199,8 +2199,8 @@ mounted(){
         <category>记录</category>
       </categories>
       <tags>
-        <tag>博客</tag>
         <tag>记录</tag>
+        <tag>博客</tag>
       </tags>
   </entry>
   <entry>
@@ -2223,8 +2223,8 @@ mounted(){
         <category>记录</category>
       </categories>
       <tags>
-        <tag>博客</tag>
         <tag>记录</tag>
+        <tag>博客</tag>
       </tags>
   </entry>
   <entry>
@@ -2251,8 +2251,8 @@ mounted(){
         <category>记录</category>
       </categories>
       <tags>
-        <tag>博客</tag>
         <tag>记录</tag>
+        <tag>博客</tag>
       </tags>
   </entry>
   <entry>
@@ -2270,8 +2270,8 @@ mounted(){
         <category>记录</category>
       </categories>
       <tags>
-        <tag>博客</tag>
         <tag>记录</tag>
+        <tag>博客</tag>
       </tags>
   </entry>
   <entry>
@@ -2316,8 +2316,8 @@ mounted(){
         <category>记录</category>
       </categories>
       <tags>
-        <tag>博客</tag>
         <tag>记录</tag>
+        <tag>博客</tag>
       </tags>
   </entry>
   <entry>
@@ -2352,8 +2352,8 @@ mounted(){
         <category>记录</category>
       </categories>
       <tags>
-        <tag>博客</tag>
         <tag>记录</tag>
+        <tag>博客</tag>
       </tags>
   </entry>
   <entry>
@@ -2434,8 +2434,8 @@ mounted(){
         <category>记录</category>
       </categories>
       <tags>
-        <tag>博客</tag>
         <tag>记录</tag>
+        <tag>博客</tag>
       </tags>
   </entry>
   <entry>

@@ -110,8 +110,8 @@
         <category>总结</category>
       </categories>
       <tags>
-        <tag>总结</tag>
         <tag>记录</tag>
+        <tag>总结</tag>
       </tags>
   </entry>
   <entry>
@@ -491,8 +491,8 @@
         <category>vue</category>
       </categories>
       <tags>
-        <tag>记录</tag>
         <tag>前端</tag>
+        <tag>记录</tag>
         <tag>vue</tag>
         <tag>源码</tag>
       </tags>
@@ -616,8 +616,8 @@
         <category>记录</category>
       </categories>
       <tags>
-        <tag>记录</tag>
         <tag>前端</tag>
+        <tag>记录</tag>
         <tag>vue</tag>
       </tags>
   </entry>
@@ -777,8 +777,8 @@
         <category>vueCli</category>
       </categories>
       <tags>
-        <tag>记录</tag>
         <tag>前端</tag>
+        <tag>记录</tag>
         <tag>vue</tag>
       </tags>
   </entry>
@@ -857,8 +857,8 @@
         <category>vueRouter</category>
       </categories>
       <tags>
-        <tag>记录</tag>
         <tag>前端</tag>
+        <tag>记录</tag>
         <tag>vue</tag>
       </tags>
   </entry>
@@ -1083,8 +1083,8 @@ mounted(){
         <category>记录</category>
       </categories>
       <tags>
-        <tag>记录</tag>
         <tag>前端</tag>
+        <tag>记录</tag>
         <tag>vue</tag>
       </tags>
   </entry>
@@ -1346,7 +1346,7 @@ mounted(){
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git merge 分支名 --origin</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>删除分支</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git breach -d 分支名</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git branch -d 分支名</span><br></pre></td></tr></table></figure>
 
 </li>
 </ul>
@@ -1639,8 +1639,8 @@ mounted(){
         <category>记录</category>
       </categories>
       <tags>
-        <tag>记录</tag>
         <tag>前端</tag>
+        <tag>记录</tag>
       </tags>
   </entry>
   <entry>

@@ -1,6 +1,324 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>JS内部面试宝典</title>
+    <url>/2020/03/21/JS%E5%86%85%E9%83%A8%E9%9D%A2%E8%AF%95%E5%AE%9D%E5%85%B8/</url>
+    <content><![CDATA[<p><img src="/2020/03/21/JS%E5%86%85%E9%83%A8%E9%9D%A2%E8%AF%95%E5%AE%9D%E5%85%B8/14004_13a3911b8a.jpg" alt></p><h2 id="原生JS"><a href="#原生JS" class="headerlink" title="原生JS"></a>原生JS</h2><ol>
+<li><code>null</code> 和<code>undefined</code> 的区别：</li>
+</ol><ul>
+<li><code>null</code> 是一个表示”无“的对象，转为数值时为0；</li>
+<li><code>undefined</code>是一个表示“无”的原始值，转为数值时为<code>NaN</code>，当声明的变量还未被初始化时，变量的默认值为<code>undefined</code></li>
+<li><code>null</code>用来表示尚未存在的对象，常用来表示函数企图返回一个不存在的对象。</li>
+<li><code>uindefined</code>表示“缺少值”。<ul>
+<li>典型用法<ul>
+<li>变量被声明了，但没有赋值。</li>
+<li>调用函数时，应该提供的参数没有提供。</li>
+<li>对象没有赋值的属性。</li>
+<li>函数没有返回值时，默认返回。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>null</code>表示“没有对象”<ul>
+<li>典型用法<ul>
+<li>作为函数的参数，表示该函数的参数不是对象。</li>
+<li>作为对象原型链的终点。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul><a id="more"></a>
+
+
+<ol>
+<li><p>对象的存储过程：</p>
+<ol>
+<li>开辟一个空间地址</li>
+<li>把键值对存储到这个空间地址的堆内存中</li>
+<li>把这个对象指针赋值给变量名</li>
+</ol>
+</li>
+<li><p>基本数据类型是<strong>操作值</strong>，引用数据类型操作的是<strong>堆内存空间地址</strong></p>
+</li>
+<li><p>引用数据类型之间的比较就看是不是同一个内存地址。</p>
+</li>
+<li><p>闭包：</p>
+<p>函数里面声明函数，本质上就是在函数内部和函数外部搭建起一座桥梁，使得子函数可以访问父函数中所有的局部变量，但是反之不可以。另一个作用则是保护变量不受外界污染，使其一直存在内存中。</p>
+</li>
+<li><p>new的执行过程是怎么回事？</p>
+<ol>
+<li>创建一个全新的对象</li>
+<li>然后会被执行<code>prototype</code>链接</li>
+<li>使<code>this</code>指向新创建的对象</li>
+<li>通过<code>new</code>创建的每个对象将最终被<code>prototype</code>链接到这个函数的<code>prototype</code>对象上</li>
+<li>如果函数没有返回对象类型<code>Object</code>，那么<code>new</code>表达式中的函数调用将返回该对象引用。</li>
+</ol>
+</li>
+<li><p>改变<code>this</code>指向的方法（<strong>this永远指向最后调用它的那个对象</strong>）</p>
+<ol>
+<li>箭头函数</li>
+<li>有意改变this指向</li>
+<li>使用<code>apply、</code>call<code>、</code>bind`</li>
+<li>new实例化一个对象</li>
+</ol>
+<p>全局作用域下的<code>this</code>指向<code>window</code></p>
+</li>
+<li><p>DOM回流：页面中的元素增加、删除、大小、位置的改变，会引起浏览器重新计算其他元素的位置。</p>
+</li>
+<li><p>DOM重绘：元素的某些 css 样式改变时，浏览器需要重新渲染这个元素。</p>
+</li>
+</ol>
+<h2 id="HTTP-amp-amp-Ajax"><a href="#HTTP-amp-amp-Ajax" class="headerlink" title="HTTP &amp;&amp; Ajax"></a>HTTP &amp;&amp; Ajax</h2><ol>
+<li>三次握手和四次挥手：</li>
+</ol>
+<p>第一次握手：客户端向服务端发送<code>SYN</code>码数据包，表示客户端要求和服务端建立连接</p>
+<p>第二次握手：服务端收到客户端的连接请求后，会发送<code>ACK</code>数据包给客户端，表示连接请求已收到，询问客户端是否真的需要建立连接。</p>
+<p>第三次握手：客户单收到<code>ACK</code>码以后会检查是否正确，如果正确，客户端会再次发送<code>ACK</code>码给服务器，表示确认简历连接。</p>
+<p><strong>三次握手成功后才会建立连接，然后才会发送数据</strong></p>
+<p>第一次挥手：当客户端发送数据结束后，会发送<code>FIN</code>码，数据包给服务端，表示告知服务端客户端的数据已经传递完成。</p>
+<p>第二次挥手：当服务端收到<code>FIN</code>后，会发送<code>ACK</code>给客户端，表示服务端已经知道客户端传完了。客户端收到<code>ACK</code>以后就会把传递数据给服务端的通道关闭。</p>
+<p>第三次挥手：当服务端把响应的数据发送完毕后，会发送一个<code>FIN</code>给客户端，告知客户端响应的数据已经发送完毕。</p>
+<p>第四次挥手：当客户端收到<code>FIN</code>后，会发送一个<code>ACK</code>数据包给服务端，克制服务端，客户端已经知道数据发送完毕；服务端收到<code>ACK</code>码后，可以安心的把数据传递通道关闭。</p>
+<ol>
+<li>HTTP常用状态码</li>
+</ol>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">状态码</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">200</td>
+<td style="text-align:center">正常</td>
+</tr>
+<tr>
+<td style="text-align:center">204</td>
+<td style="text-align:center">请求成功，但服务端没有内容</td>
+</tr>
+<tr>
+<td style="text-align:center">301</td>
+<td style="text-align:center">永久重定向</td>
+</tr>
+<tr>
+<td style="text-align:center">302</td>
+<td style="text-align:center">临时重定向</td>
+</tr>
+<tr>
+<td style="text-align:center">304</td>
+<td style="text-align:center">缓存</td>
+</tr>
+<tr>
+<td style="text-align:center">307</td>
+<td style="text-align:center">临时重定向，在重定向时不会改变 method</td>
+</tr>
+<tr>
+<td style="text-align:center">400</td>
+<td style="text-align:center">参数传递不当</td>
+</tr>
+<tr>
+<td style="text-align:center">401</td>
+<td style="text-align:center">权限不够</td>
+</tr>
+<tr>
+<td style="text-align:center">403</td>
+<td style="text-align:center">拒绝响应</td>
+</tr>
+<tr>
+<td style="text-align:center">404</td>
+<td style="text-align:center">客户端请求的资源或者数据不存在</td>
+</tr>
+<tr>
+<td style="text-align:center">500</td>
+<td style="text-align:center">服务端内部错误</td>
+</tr>
+<tr>
+<td style="text-align:center">502</td>
+<td style="text-align:center">网关错误</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ol>
+<li>HTTPS主要解决的三个安全问题</li>
+</ol>
+<ul>
+<li>内容隐私</li>
+<li>防篡改</li>
+<li>确认对方身份</li>
+</ul>
+<ol>
+<li>Ajax四步</li>
+</ol>
+<ul>
+<li>创建<code>XMLHttpRequest</code>对象，也就是创建一个异步调用对象</li>
+<li>创建一个新的HTTP请求，并制定该HTTP请求的方法、URL及验证信息</li>
+<li>设置响应HTTP请求状态变化的函数</li>
+<li>发送HTTP请求</li>
+</ul>
+<ol>
+<li><code>cookie</code>、<code>localStorage</code>以及<code>sessionStorage</code>的异同点</li>
+</ol>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">分类</th>
+<th style="text-align:center">生命周期</th>
+<th style="text-align:center">存储容量</th>
+<th style="text-align:center">存储位置</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">cookie</td>
+<td style="text-align:center">默认保存在内存中，随浏览器关闭失效（如果设置过期时间，在到过期时间后失效）</td>
+<td style="text-align:center">4KB</td>
+<td style="text-align:center">保存在客户端，每次请求时都会带上</td>
+</tr>
+<tr>
+<td style="text-align:center">localStorage</td>
+<td style="text-align:center">理论上永久有效，除非主动清除</td>
+<td style="text-align:center">4.98MB</td>
+<td style="text-align:center">保存在客户端，不与服务端交互，节省网络流量</td>
+</tr>
+<tr>
+<td style="text-align:center">sessionStorage</td>
+<td style="text-align:center">仅在当前网页会话下有效，关闭页面或浏览器后会被清除</td>
+<td style="text-align:center">4.98MB</td>
+<td style="text-align:center">同上</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ol>
+<li>Token相关</li>
+</ol>
+<ul>
+<li>客户端使用用户名和密码请求登录</li>
+<li>服务端收到请求，去验证用户名和密码</li>
+<li>验证成功后，服务端会签发一个 token 并把这个 token 发送给客户端</li>
+<li>客户端收到 token 以后，会把它存储起来，比如放在 cookie 里或者 localStorage 里</li>
+<li>客户端每次向服务端请求资源的时候需要带着服务端签发的 token</li>
+<li>服务端收到请求，然后去验证客户端请求里面带着 token，如果验证成功，就向客户端返回请求的数据</li>
+</ul>
+<ol>
+<li>同源策略：</li>
+</ol>
+<p>客户端脚本（JavaScript）的重要的安全度量标准。其目的就是防止某个文档或者脚本从多个不同源装载。</p>
+<p>同源策略指的是：协议、域名、端口相同。</p>
+<ol>
+<li><code>XSS</code>和<code>CSRF</code>区别;</li>
+</ol>
+<p>跨站脚本攻击（XSS）：恶意攻击者往Web页面里插入恶意 Script 代码，当用户浏览该页时，嵌入其中 Web 里面的 Script 代码会被执行，从而达到恶意攻击用户的目的。</p>
+<p>跨站请求伪造（CSRF）：伪造请求，冒充用户在站内正常的操作。</p>
+<p><strong>区别</strong>：</p>
+<p>原理不同，CSRF 是利用网站A本身的漏洞，去请求网站A 的api；XSS 是向目标网站注入 JS 代码，然后执行 JS 里的代码。</p>
+<p>CSRF 需要用户先登录目标网站获取 cookie， 而 XSS 不需要登录；</p>
+<p>CSRF 的目标是用户，XSS 的目标是服务器；</p>
+<p>XSS 利用合法用户获取其信息，而 CSRF 是伪造成合法用户发起请求。</p>
+<h1 id="Vue-相关"><a href="#Vue-相关" class="headerlink" title="Vue 相关"></a>Vue 相关</h1><ol>
+<li><p>什么是生命周期：</p>
+<p>Vue 实例从穿件到销毁的过程就是生命周期。也就是从开始创建、初始化数据、编译模板、挂在DOM→渲染、更新→渲染、卸载等一系列过程，就是Vue的生命周期。</p>
+</li>
+<li><p>第一次页面加载会触发那几个钩子函数？</p>
+<p><code>beforeCreate</code>,<code>created</code>,<code>beforeMount</code>,<code>mounted</code></p>
+</li>
+<li><p><code>v-if</code>和<code>v-show</code>的区别：</p>
+</li>
+</ol>
+<ul>
+<li><code>v-show</code>是CSS切换，<code>v-if</code>是完整的销毁和重建</li>
+<li>频繁切换时使用<code>v-show</code>，运行时较少改变时用<code>v-if</code></li>
+</ul>
+<ol>
+<li><p><code>MVVM</code></p>
+<p>M ——Model：表示数据模型，也可以在Model中定义数据修改和操作的业务逻辑；</p>
+<p>V —— View：表示UI组件，负责将数据模型转化为 UI 展现出来；</p>
+<p>VM —— ViewModel：监听数据模型的改变和控制视图行为、处理用户交互。</p>
+<p><img src="/2020/03/21/JS%E5%86%85%E9%83%A8%E9%9D%A2%E8%AF%95%E5%AE%9D%E5%85%B8/clip_image002.png" alt="image.png"></p>
+</li>
+<li><p><code>MVC</code></p>
+</li>
+</ol>
+<ul>
+<li>View 接受用户交互请求</li>
+<li>View 将请求转交给Controller 处理</li>
+<li>Controller 操作 Mode 进行数据更新保存</li>
+<li>View 更新变化数据使用户得到反馈</li>
+</ul>
+<p><img src="/2020/03/21/JS%E5%86%85%E9%83%A8%E9%9D%A2%E8%AF%95%E5%AE%9D%E5%85%B8/clip_image003.png" alt="image.png"></p>
+<ol>
+<li><code>SPA</code>单页应用</li>
+</ol>
+<ul>
+<li>优点：<ul>
+<li>用户体验好、快，内容的改变不需要重新加载整个页面，避免了不必要的跳转和重复渲染；</li>
+<li>基于上面一点，SPA 相对服务器压力小</li>
+<li>前后端职责分离，架构清晰，前端进行交互逻辑，后端负责数据处理。</li>
+</ul>
+</li>
+<li>缺点：<ul>
+<li>初次加载耗时多：为实现单页 web 应用功能及显示效果，需要在加载页面的时候将 JS、CSS 统一加载，部分页面按需加载；</li>
+<li>前进后退路由管理：由于单页引用在一个页面中显示所有内容，所以不能使用浏览器的前进后退功能，所有的页面切换需要自己建立堆栈管理；</li>
+<li>SEO 难度较大：由于所有内容都在一个页面中动态替换显示，所以在 SEO 上有着天然的弱势。</li>
+</ul>
+</li>
+</ul>
+<ol>
+<li><code>computed</code>和<code>watch</code>的区别和运用场景</li>
+</ol>
+<ul>
+<li><code>computed</code>：计算属性，依赖其他属性值并且<code>computed</code>的值有缓存，只有它以来的属性值发生变化，下一次获取<code>computed</code>的值时才会重新计算。</li>
+<li><p><code>watch</code>：更多的是“观察”的作用，类似于某些数据的监听回调，每当监听的数据变化时都会执行回调进行后续操作。</p>
+</li>
+<li><p>应用场景：</p>
+<ul>
+<li>进行数值计算并且依赖于其它数据时使用<code>computed</code>，可以利用<code>computed</code>的缓存特性，便面每次获取值时都要重新计算。</li>
+<li>需要在数据变化时执行异步操作或开销较大的操作时，使用<code>watch</code></li>
+</ul>
+</li>
+</ul>
+<ol>
+<li><p>Vue 组件的 <code>data</code>为什么必须是函数？</p>
+<p>因为组件是可以复用的，JS 里对象是引用关系，如果组件 data 是一个对象，那么子组件中的 data 属性会相互污染，产生副作用。</p>
+</li>
+<li><p>Vuex 的理解</p>
+</li>
+</ol>
+<p>Vuex 是一个专门为 Vue.js 应用程序开发的状态管理模式。每一个 Vuex 应用的核心就是 <code>store</code>，<code>store</code>基本上就是一个容器，它包含着应用中大部分的状态（state）。</p>
+<ul>
+<li>Vuex 的状态存储是响应式的。当 Vue 组件从 store 中读取状态的时候，若 store 中的状态发生变化，那么相应的组件也会高效更新。</li>
+<li>改变 store 中的状态的唯一途径就是显示的提交 （commit）mutation。这样使得我们可以方便跟踪每一个状态的变化。</li>
+</ul>
+<ol>
+<li><p>Vue 中的 <code>key</code> 有什么作用？</p>
+<p>Vue 中的 <code>key</code>的作用是： <code>key</code> 是为了 Vue 中 <code>vnode</code> 的唯一标记，通过 <code>key</code>，我们的diff 操作可以更准确、更快速。</p>
+</li>
+<li><p><code>ref</code> 的作用</p>
+</li>
+</ol>
+<ul>
+<li>获取 dom 元素：<code>this.$refs.box</code></li>
+<li>获取子组件中的 data：<code>this,$refs.box.msg</code></li>
+<li>调用子组件中的方法：<code>this.$refs.box.open()</code></li>
+</ul>
+]]></content>
+      <categories>
+        <category>面试</category>
+        <category>笔记</category>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+        <tag>笔记</tag>
+        <tag>面试</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>前端性能优化</title>
     <url>/2020/03/01/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/</url>
     <content><![CDATA[<ol>
@@ -141,8 +459,8 @@
         <category>笔记</category>
       </categories>
       <tags>
-        <tag>笔记</tag>
         <tag>前端</tag>
+        <tag>笔记</tag>
         <tag>性能优化</tag>
       </tags>
   </entry>
@@ -635,8 +953,8 @@
         <category>前端</category>
       </categories>
       <tags>
-        <tag>前端</tag>
         <tag>总结</tag>
+        <tag>前端</tag>
         <tag>面试</tag>
       </tags>
   </entry>
@@ -1129,9 +1447,9 @@
         <category>笔记</category>
       </categories>
       <tags>
-        <tag>笔记</tag>
-        <tag>前端</tag>
         <tag>JavaScript</tag>
+        <tag>前端</tag>
+        <tag>笔记</tag>
       </tags>
   </entry>
   <entry>
@@ -2231,8 +2549,8 @@ this.$refs.mydiv
         <category>webpack</category>
       </categories>
       <tags>
-        <tag>笔记</tag>
         <tag>前端</tag>
+        <tag>笔记</tag>
         <tag>webpack</tag>
       </tags>
   </entry>
@@ -2266,9 +2584,9 @@ this.$refs.mydiv
         <category>记录</category>
       </categories>
       <tags>
+        <tag>前端</tag>
         <tag>笔记</tag>
         <tag>gulp</tag>
-        <tag>前端</tag>
       </tags>
   </entry>
   <entry>

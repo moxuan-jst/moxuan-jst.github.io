@@ -95,9 +95,9 @@
       <category term="JavaScript" scheme="https://moxuan.xyz/categories/%E9%9D%A2%E8%AF%95/%E7%AC%94%E8%AE%B0/JavaScript/"/>
     
     
-      <category term="JavaScript" scheme="https://moxuan.xyz/tags/JavaScript/"/>
-    
       <category term="笔记" scheme="https://moxuan.xyz/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="JavaScript" scheme="https://moxuan.xyz/tags/JavaScript/"/>
     
       <category term="面试" scheme="https://moxuan.xyz/tags/%E9%9D%A2%E8%AF%95/"/>
     
@@ -135,9 +135,9 @@
       <category term="笔记" scheme="https://moxuan.xyz/categories/%E5%89%8D%E7%AB%AF/%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="前端" scheme="https://moxuan.xyz/tags/%E5%89%8D%E7%AB%AF/"/>
-    
       <category term="笔记" scheme="https://moxuan.xyz/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="前端" scheme="https://moxuan.xyz/tags/%E5%89%8D%E7%AB%AF/"/>
     
       <category term="性能优化" scheme="https://moxuan.xyz/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
     
@@ -197,11 +197,11 @@
       <category term="前端" scheme="https://moxuan.xyz/categories/%E9%9D%A2%E8%AF%95/%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/"/>
     
     
+      <category term="总结" scheme="https://moxuan.xyz/tags/%E6%80%BB%E7%BB%93/"/>
+    
       <category term="前端" scheme="https://moxuan.xyz/tags/%E5%89%8D%E7%AB%AF/"/>
     
       <category term="面试" scheme="https://moxuan.xyz/tags/%E9%9D%A2%E8%AF%95/"/>
-    
-      <category term="总结" scheme="https://moxuan.xyz/tags/%E6%80%BB%E7%BB%93/"/>
     
   </entry>
   
@@ -278,11 +278,11 @@
       <category term="笔记" scheme="https://moxuan.xyz/categories/%E5%89%8D%E7%AB%AF/%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="JavaScript" scheme="https://moxuan.xyz/tags/JavaScript/"/>
+      <category term="笔记" scheme="https://moxuan.xyz/tags/%E7%AC%94%E8%AE%B0/"/>
     
       <category term="前端" scheme="https://moxuan.xyz/tags/%E5%89%8D%E7%AB%AF/"/>
     
-      <category term="笔记" scheme="https://moxuan.xyz/tags/%E7%AC%94%E8%AE%B0/"/>
+      <category term="JavaScript" scheme="https://moxuan.xyz/tags/JavaScript/"/>
     
   </entry>
   
@@ -398,9 +398,9 @@
       <category term="总结" scheme="https://moxuan.xyz/categories/%E8%AE%B0%E5%BD%95/%E6%80%BB%E7%BB%93/"/>
     
     
-      <category term="记录" scheme="https://moxuan.xyz/tags/%E8%AE%B0%E5%BD%95/"/>
-    
       <category term="总结" scheme="https://moxuan.xyz/tags/%E6%80%BB%E7%BB%93/"/>
+    
+      <category term="记录" scheme="https://moxuan.xyz/tags/%E8%AE%B0%E5%BD%95/"/>
     
   </entry>
   
@@ -612,9 +612,9 @@
       <category term="vue" scheme="https://moxuan.xyz/categories/%E8%AE%B0%E5%BD%95/%E5%89%8D%E7%AB%AF/vue/"/>
     
     
-      <category term="前端" scheme="https://moxuan.xyz/tags/%E5%89%8D%E7%AB%AF/"/>
-    
       <category term="记录" scheme="https://moxuan.xyz/tags/%E8%AE%B0%E5%BD%95/"/>
+    
+      <category term="前端" scheme="https://moxuan.xyz/tags/%E5%89%8D%E7%AB%AF/"/>
     
       <category term="vue" scheme="https://moxuan.xyz/tags/vue/"/>
     
@@ -646,9 +646,9 @@
       <category term="记录" scheme="https://moxuan.xyz/categories/%E5%89%8D%E7%AB%AF/vue/%E8%AE%B0%E5%BD%95/"/>
     
     
-      <category term="前端" scheme="https://moxuan.xyz/tags/%E5%89%8D%E7%AB%AF/"/>
-    
       <category term="记录" scheme="https://moxuan.xyz/tags/%E8%AE%B0%E5%BD%95/"/>
+    
+      <category term="前端" scheme="https://moxuan.xyz/tags/%E5%89%8D%E7%AB%AF/"/>
     
       <category term="vue" scheme="https://moxuan.xyz/tags/vue/"/>
     
@@ -707,9 +707,9 @@
       <category term="vueCli" scheme="https://moxuan.xyz/categories/%E5%89%8D%E7%AB%AF/vue/%E8%AE%B0%E5%BD%95/vueCli/"/>
     
     
-      <category term="前端" scheme="https://moxuan.xyz/tags/%E5%89%8D%E7%AB%AF/"/>
-    
       <category term="记录" scheme="https://moxuan.xyz/tags/%E8%AE%B0%E5%BD%95/"/>
+    
+      <category term="前端" scheme="https://moxuan.xyz/tags/%E5%89%8D%E7%AB%AF/"/>
     
       <category term="vue" scheme="https://moxuan.xyz/tags/vue/"/>
     

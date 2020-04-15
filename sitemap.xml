@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://moxuan.xyz/demo/index.html</loc>
+    
+    <lastmod>2020-04-15T12:44:29.272Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://moxuan.xyz/2020/04/05/django%25E5%2595%2586%25E5%259F%258E%25E9%2583%25A8%25E7%25BD%25B2/</loc>
     
     <lastmod>2020-04-06T02:25:32.422Z</lastmod>
@@ -285,13 +292,6 @@
     <loc>https://moxuan.xyz/categories/index.html</loc>
     
     <lastmod>2020-04-03T14:35:06.239Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://moxuan.xyz/demo/index.html</loc>
-    
-    <lastmod>2020-04-03T14:35:06.099Z</lastmod>
     
   </url>
   

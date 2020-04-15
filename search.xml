@@ -341,8 +341,8 @@
         <category>JavaScript</category>
       </categories>
       <tags>
-        <tag>JavaScript</tag>
         <tag>笔记</tag>
+        <tag>JavaScript</tag>
         <tag>面试</tag>
       </tags>
   </entry>
@@ -487,8 +487,8 @@
         <category>笔记</category>
       </categories>
       <tags>
-        <tag>前端</tag>
         <tag>笔记</tag>
+        <tag>前端</tag>
         <tag>性能优化</tag>
       </tags>
   </entry>
@@ -981,9 +981,9 @@
         <category>前端</category>
       </categories>
       <tags>
+        <tag>总结</tag>
         <tag>前端</tag>
         <tag>面试</tag>
-        <tag>总结</tag>
       </tags>
   </entry>
   <entry>
@@ -1475,9 +1475,9 @@
         <category>笔记</category>
       </categories>
       <tags>
-        <tag>JavaScript</tag>
-        <tag>前端</tag>
         <tag>笔记</tag>
+        <tag>前端</tag>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
@@ -1586,8 +1586,8 @@
         <category>总结</category>
       </categories>
       <tags>
-        <tag>记录</tag>
         <tag>总结</tag>
+        <tag>记录</tag>
       </tags>
   </entry>
   <entry>
@@ -1951,8 +1951,8 @@
         <category>vue</category>
       </categories>
       <tags>
-        <tag>前端</tag>
         <tag>记录</tag>
+        <tag>前端</tag>
         <tag>vue</tag>
         <tag>源码</tag>
       </tags>
@@ -2064,8 +2064,8 @@
         <category>记录</category>
       </categories>
       <tags>
-        <tag>前端</tag>
         <tag>记录</tag>
+        <tag>前端</tag>
         <tag>vue</tag>
       </tags>
   </entry>
@@ -2208,8 +2208,8 @@
         <category>vueCli</category>
       </categories>
       <tags>
-        <tag>前端</tag>
         <tag>记录</tag>
+        <tag>前端</tag>
         <tag>vue</tag>
       </tags>
   </entry>
@@ -2279,8 +2279,8 @@
         <category>vueRouter</category>
       </categories>
       <tags>
-        <tag>前端</tag>
         <tag>记录</tag>
+        <tag>前端</tag>
         <tag>vue</tag>
       </tags>
   </entry>
@@ -2481,8 +2481,8 @@ this.$refs.mydiv
         <category>记录</category>
       </categories>
       <tags>
-        <tag>前端</tag>
         <tag>记录</tag>
+        <tag>前端</tag>
         <tag>vue</tag>
       </tags>
   </entry>
@@ -2577,8 +2577,8 @@ this.$refs.mydiv
         <category>webpack</category>
       </categories>
       <tags>
-        <tag>前端</tag>
         <tag>笔记</tag>
+        <tag>前端</tag>
         <tag>webpack</tag>
       </tags>
   </entry>
@@ -2612,9 +2612,9 @@ this.$refs.mydiv
         <category>记录</category>
       </categories>
       <tags>
-        <tag>前端</tag>
         <tag>笔记</tag>
         <tag>gulp</tag>
+        <tag>前端</tag>
       </tags>
   </entry>
   <entry>
@@ -2953,8 +2953,8 @@ this.$refs.mydiv
         <category>记录</category>
       </categories>
       <tags>
-        <tag>前端</tag>
         <tag>记录</tag>
+        <tag>前端</tag>
       </tags>
   </entry>
   <entry>

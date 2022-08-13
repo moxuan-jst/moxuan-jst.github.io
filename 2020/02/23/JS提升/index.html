@@ -340,11 +340,13 @@ var _hmt = _hmt || [];
       
         <p>边看教程边记得笔记，便于以后复查，只是记录了一些自己记忆比较模糊的内容以及提高的内容。</p>
 <a id="more"></a>
+
 <h3 id="第一部分：js基础"><a href="#第一部分：js基础" class="headerlink" title="第一部分：js基础"></a>第一部分：js基础</h3><ol>
 <li>变量冻结</li>
 </ol>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> HOST = <span class="string">"host"</span>;</span><br><span class="line"><span class="built_in">Object</span>.freeze(HOST);</span><br><span class="line"><span class="keyword">let</span> HOST = <span class="string">"sws"</span>;</span><br><span class="line"><span class="built_in">console</span>.log(HOST);</span><br></pre></td></tr></table></figure>
-<ol>
+
+<ol start="2">
 <li><p>传值、传址</p>
 <p> 基本类型的复制是值的复制，互相不影响。</p>
 <p> 引用类型变量保存的是引用对象的指针。</p>
@@ -371,6 +373,7 @@ var _hmt = _hmt || [];
 <li><p>字符串截取</p>
 <p> <code>slice()</code>、<code>substring()</code>、<code>substr()</code>的区别</p>
  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="string">"www.moxuan.xyz"</span>;</span><br><span class="line">str.slice(<span class="number">1</span>)  <span class="comment">// "ww.moxuan.xyz"</span></span><br><span class="line">str.slice(<span class="number">1</span>, <span class="number">4</span>)  <span class="comment">// "ww."</span></span><br><span class="line">str.substring(<span class="number">1</span>)  <span class="comment">// "ww.moxuan.xyz"</span></span><br><span class="line">str.substring(<span class="number">1</span>,<span class="number">4</span>)  <span class="comment">// "ww."</span></span><br><span class="line">str.substr(<span class="number">1</span>)  <span class="comment">// "ww.moxuan.xyz"</span></span><br><span class="line">str.substr(<span class="number">1</span>,<span class="number">4</span>)  <span class="comment">// "ww.m"</span></span><br></pre></td></tr></table></figure>
+
 <p> 如果只有一个参数，且该参数为正数，那么三个函数作用相同，都是以该参数为下标向后截取。</p>
 <p> 如果有两个参数，第二个参数为截断位置，<code>slice()</code>和<code>substring()</code>作用相同，都截取到第二个参数的前一个，<code>substr()</code>包括第二个参数。</p>
 <p> 如果参数为负数，<code>substring()</code>一直为空，<code>slice()</code>和<code>substr()</code>从后往前截取，<code>substring()</code>多一位。</p>
@@ -399,6 +402,7 @@ var _hmt = _hmt || [];
 </li>
 <li><p>清空数组</p>
  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]</span><br><span class="line"><span class="keyword">let</span> hd = arr</span><br><span class="line">hd = []</span><br><span class="line"><span class="comment">// 或者</span></span><br><span class="line">hd.length = <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
 <p> 两种方法的区别：</p>
 <ul>
 <li><code>hd = []</code>会新开辟一块内存地址，元素为空。</li>
@@ -467,7 +471,8 @@ var _hmt = _hmt || [];
 </li>
 <li><p><code>call/call/bind</code> 改变 this 指针。</p>
 <ul>
-<li><code>call</code>与<code>apply</code>用于显示的设置函数的上下文，两种方法作用一样，都是将对象绑定到this，只是在传递参数上有所不同。</li>
+<li><p><code>call</code>与<code>apply</code>用于显示的设置函数的上下文，两种方法作用一样，都是将对象绑定到this，只是在传递参数上有所不同。</p>
+</li>
 <li><p><code>call</code>与<code>apply</code> 会立即执行。</p>
 </li>
 <li><p><code>bind</code> 是将函数绑定到某个对象上。</p>
@@ -514,14 +519,15 @@ var _hmt = _hmt || [];
 </li>
 <li><p>深拷贝：对对象属性的所有层级进行复制。</p>
 <ul>
-<li>递归对象;</li>
+<li><p>递归对象;</p>
+</li>
 <li><p><code>Object.entries()</code>;</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">copy</span>(<span class="params">obj</span>)</span>&#123;</span><br><span class="line">    <span class="comment">// 判断需要复制的是数组还是对象;</span></span><br><span class="line">    <span class="keyword">let</span> res = obj <span class="keyword">instanceof</span> <span class="built_in">Array</span> ? [] : &#123;&#125;;</span><br><span class="line">    <span class="comment">// 遍历</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">const</span> [k,v] <span class="keyword">of</span> <span class="built_in">Object</span>.entries(obj))&#123;</span><br><span class="line">        res[k] = <span class="keyword">typeof</span> v == <span class="string">"object"</span>?copy(v):v;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
 </ul>
-<ol>
+<ol start="3">
 <li><p>控制对象属性是否可更改</p>
 <ul>
 <li><code>Object.preventExtensible()</code>阻止修改对象属性。</li>
@@ -530,7 +536,7 @@ var _hmt = _hmt || [];
 </ul>
 </li>
 </ol>
-<h5 id="访问器"><a href="#访问器" class="headerlink" title="访问器"></a>访问器</h5><ol>
+<h5 id="访问器"><a href="#访问器" class="headerlink" title="访问器"></a>访问器</h5><ol start="4">
 <li><p>使用访问器保护数据<code>set</code>和<code>get</code>关键字</p>
 </li>
 <li><p>可以使用访问器伪造属性</p>
@@ -538,23 +544,26 @@ var _hmt = _hmt || [];
 </li>
 <li><p>对于构造函数使用<code>Object.defineProperties()</code>创建访问器。</p>
  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">User</span>(<span class="params">name, age</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> data = &#123;name,age&#125;；</span><br><span class="line">    <span class="built_in">Object</span>.defineProperties(<span class="keyword">this</span>, &#123;</span><br><span class="line">        name: &#123;</span><br><span class="line">            <span class="comment">// 访问器</span></span><br><span class="line">            <span class="keyword">get</span>()&#123;&#125;,</span><br><span class="line">            <span class="keyword">set</span>()&#123;&#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 </li>
 </ol>
-<h5 id="代理Proxy对象"><a href="#代理Proxy对象" class="headerlink" title="代理Proxy对象"></a>代理<code>Proxy对象</code></h5><ol>
+<h5 id="代理Proxy对象"><a href="#代理Proxy对象" class="headerlink" title="代理Proxy对象"></a>代理<code>Proxy对象</code></h5><ol start="7">
 <li><p>对象代理</p>
  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> hd = &#123;<span class="attr">name</span>: <span class="string">"墨轩"</span>&#125;;</span><br><span class="line"><span class="keyword">const</span> proxy = <span class="keyword">new</span> <span class="built_in">Proxy</span>(hd, &#123;</span><br><span class="line">    <span class="keyword">get</span>(obj, property)&#123;</span><br><span class="line">        <span class="keyword">return</span> obj[property];</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="keyword">set</span>(obj, property, value)&#123;</span><br><span class="line">         obj[property] = value;</span><br><span class="line">         <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(proxy.name);</span><br><span class="line"><span class="comment">// 墨轩</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>函数代理</p>
  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"墨轩"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> proxy = <span class="keyword">new</span> <span class="built_in">Proxy</span>(a, &#123;</span><br><span class="line">    apply(fun, obj, args)&#123;&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
 </li>
 </ol>
-<h5 id="JSON数据处理-序列化"><a href="#JSON数据处理-序列化" class="headerlink" title="JSON数据处理(序列化)"></a>JSON数据处理(序列化)</h5><ol>
+<h5 id="JSON数据处理-序列化"><a href="#JSON数据处理-序列化" class="headerlink" title="JSON数据处理(序列化)"></a>JSON数据处理(序列化)</h5><ol start="9">
 <li><p><code>JSON.stringify()</code>将数据转换成JSON。</p>
 </li>
 <li><p><code>JSON.parse()</code>将JSON转换成js对象。</p>
 </li>
 <li><p>JSON序列化</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = &#123;</span><br><span class="line">    name: <span class="string">"墨轩"</span>,</span><br><span class="line">    toJSON: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            name: <span class="keyword">this</span>,name  </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> json = <span class="built_in">JSON</span>.stringify(json)</span><br></pre></td></tr></table></figure>
+
 </li>
 </ol>
 <h3 id="第十一部分：原型和继承"><a href="#第十一部分：原型和继承" class="headerlink" title="第十一部分：原型和继承"></a>第十一部分：原型和继承</h3><ol>
@@ -568,7 +577,7 @@ var _hmt = _hmt || [];
 <li>原型包含<code>constructor</code>属性，指向构造函数。</li>
 <li>对象包含<code>__proto__</code>指向他的原型对象。</li>
 </ul>
-<ol>
+<ol start="2">
 <li><p>函数拥有多个原型，<code>prototype</code>用于实例对象使用，<code>__proto__</code>用于函数对象使用。</p>
 </li>
 <li><p>可以使用<code>setPrototypeOf</code>和<code>getPrototypeOf</code>设置与获取原型。</p>
@@ -654,7 +663,7 @@ var _hmt = _hmt || [];
 <li>catch()方法 </li>
 <li>finally()：无论状态是成功还是失败都会执行，也就是与状态无关。</li>
 </ul>
-<ol>
+<ol start="6">
 <li><p><code>Promise.resolve()</code>和<code>Promise.reject()</code>默认执行方法。</p>
 </li>
 <li><p><code>Promise.all()</code>批量处理Promise。</p>
@@ -665,7 +674,8 @@ var _hmt = _hmt || [];
 </li>
 </ol>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">get</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">await</span> ajax(<span class="string">`http://localhost:8888/php/user.php?name=<span class="subst">$&#123;name&#125;</span>`</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">get</span>("墨轩").then(user =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(user)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<ol>
+
+<ol start="10">
 <li><p>async 内部发生错误，会将 promise 对象变为<code>reject</code>状态，所以使用<code>catch()</code>方法来处理。</p>
 </li>
 <li><p>标准错误处理使用<code>try-catch</code>。</p>
@@ -682,6 +692,8 @@ var _hmt = _hmt || [];
 </li>
 </ol>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定时器</span></span><br><span class="line"><span class="built_in">console</span>.time(<span class="string">"runtime"</span>);</span><br><span class="line"><span class="keyword">let</span> count = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">let</span> num = <span class="number">987654321</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">hd</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">100000000</span>; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (num &lt;= <span class="number">0</span>) <span class="keyword">break</span>;</span><br><span class="line">    count += num--;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (num &gt; <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(num);</span><br><span class="line">    setTimeout(hd);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(num);</span><br><span class="line">    <span class="built_in">console</span>.log(count);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">hd();</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"houdunren.com"</span>); <span class="comment">//立刻显示出来</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Promise</span></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">hd</span>(<span class="params">num</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> res = <span class="keyword">await</span> <span class="built_in">Promise</span>.resolve().then(<span class="function"><span class="params">_</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> count = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; num; i++) &#123;</span><br><span class="line">      count += num--;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> count;</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="built_in">console</span>.log(res);</span><br><span class="line">&#125;</span><br><span class="line">hd(<span class="number">987654321</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"后盾人"</span>);</span><br></pre></td></tr></table></figure>
+
+
 
     </div>
 

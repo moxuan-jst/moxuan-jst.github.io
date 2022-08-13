@@ -340,16 +340,20 @@ var _hmt = _hmt || [];
       
         <p>今天在发博客的时候，因为vue的有些内容需要用到<code>{ {}}</code>，所以在执行<code>hexo generate</code>初始化的时候总是报错。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">at formatNunjucksError (/mnt/wendang/demo/blog/moxuan/node_modules/hexo/lib/extend/tag.js:99:13)</span><br><span class="line"> at /mnt/wendang/demo/blog/moxuan/node_modules/hexo/lib/extend/tag.js:121:34</span><br><span class="line"> at tryCatcher (/mnt/wendang/demo/blog/moxuan/node_modules/bluebird/js/release/util.js:16:23)</span><br><span class="line"> at Promise._settlePromiseFromHandler (/mnt/wendang/demo/blog/moxuan/node_modules/bluebird/js/release/promise.js:547:31)</span><br><span class="line"> at Promise._settlePromise (/mnt/wendang/demo/blog/moxuan/node_modules/bluebird/js/release/promise.js:604:18)</span><br><span class="line"> at Promise._settlePromise0 (/mnt/wendang/demo/blog/moxuan/node_modules/bluebird/js/release/promise.js:649:10)</span><br><span class="line"> at Promise._settlePromises (/mnt/wendang/demo/blog/moxuan/node_modules/bluebird/js/release/promise.js:725:18)</span><br><span class="line"> at _drainQueueStep (/mnt/wendang/demo/blog/moxuan/node_modules/bluebird/js/release/async.js:93:12)</span><br><span class="line"> at _drainQueue (/mnt/wendang/demo/blog/moxuan/node_modules/bluebird/js/release/async.js:86:9)</span><br><span class="line"> at Async._drainQueues (/mnt/wendang/demo/blog/moxuan/node_modules/bluebird/js/release/async.js:102:5)</span><br><span class="line"> at Immediate.Async.drainQueues [as _onImmediate] (/mnt/wendang/demo/blog/moxuan/node_modules/bluebird/js/release/async.js:15:14)</span><br><span class="line"> at processImmediate (internal/timers.js:439:21)</span><br></pre></td></tr></table></figure>
+
 <a id="more"></a>
+
 <p>由于刚开始的额时候动了hexo的配置文件，所以一度错以为是配置文件出了问题，无奈又将配置文件恢复到原来的状态，但还是没有效果，依旧报错，这是只能讲vue的博客先暂时移出文件夹，在进行初始化时就可以正常通过了，所以可以断定就是vue这这篇博客的问题，但是这篇在将博客切分以后,一部分一部分的进行比较，执行初始化命令，最后将问题定位在了<code>{ {}}</code>上面。查阅资料以后，现解决方案如下：</p>
 <blockquote>
 <h4 id="方案一"><a href="#方案一" class="headerlink" title="方案一"></a>方案一</h4></blockquote>
 <p>如果想要不对{ { } }进行解析 ，只想显示{ { user.name } }，可以用这种方式写在你的文章中。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% raw %&#125;&#123;&#123;user.name&#125;&#125;&#123;% endraw %&#125;</span><br></pre></td></tr></table></figure>
+
 <blockquote>
 <h4 id="方案二"><a href="#方案二" class="headerlink" title="方案二"></a>方案二</h4></blockquote>
 <p>将前面的两个括号拆开即可，也就是破坏原来的结构。我就是用的这种方法，如果仔细看的话，我的前面两个括号实际上中间是有一个空格的。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123; &#123;uer.name&#125;&#125;</span><br></pre></td></tr></table></figure>
+
 <p>参考：</p>
 <p> <a href="https://link.jianshu.com/?t=http%3A%2F%2Fhbson.cn%2F2018%2F04%2F23%2FDouble_brace_parsing%2F" target="_blank" rel="noopener">http://hbson.cn/2018/04/23/Double_brace_parsing/</a></p>
 <p><a href="https://www.v2ex.com/t/510207" target="_blank" rel="noopener">https://www.v2ex.com/t/510207</a></p>

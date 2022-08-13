@@ -341,50 +341,47 @@ var _hmt = _hmt || [];
       
         <p><img src="/2019/11/04/manjaro%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/image-20191104173229290.png" alt="image-20191104173229290"></p>
 <a id="more"></a>
-<h4 id="一、分区方案-128G-SSD"><a href="#一、分区方案-128G-SSD" class="headerlink" title="一、分区方案(128G SSD)"></a>一、分区方案(128G SSD)</h4><div class="table-container">
-<table>
+
+<h4 id="一、分区方案-128G-SSD"><a href="#一、分区方案-128G-SSD" class="headerlink" title="一、分区方案(128G SSD)"></a>一、分区方案(128G SSD)</h4><table>
 <thead>
 <tr>
-<th style="text-align:center">分区类型</th>
-<th style="text-align:center">挂载点</th>
-<th style="text-align:center">大小</th>
-<th style="text-align:center">描述</th>
+<th align="center">分区类型</th>
+<th align="center">挂载点</th>
+<th align="center">大小</th>
+<th align="center">描述</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center">fat32</td>
-<td style="text-align:center">/boot/efi</td>
-<td style="text-align:center">300MB</td>
-<td style="text-align:center">启动分区</td>
+<tbody><tr>
+<td align="center">fat32</td>
+<td align="center">/boot/efi</td>
+<td align="center">300MB</td>
+<td align="center">启动分区</td>
 </tr>
 <tr>
-<td style="text-align:center">ext4</td>
-<td style="text-align:center">/opt</td>
-<td style="text-align:center">15000MB</td>
-<td style="text-align:center">软件分区</td>
+<td align="center">ext4</td>
+<td align="center">/opt</td>
+<td align="center">15000MB</td>
+<td align="center">软件分区</td>
 </tr>
 <tr>
-<td style="text-align:center">ext4</td>
-<td style="text-align:center">/</td>
-<td style="text-align:center">25000MB</td>
-<td style="text-align:center">根分区</td>
+<td align="center">ext4</td>
+<td align="center">/</td>
+<td align="center">25000MB</td>
+<td align="center">根分区</td>
 </tr>
 <tr>
-<td style="text-align:center">linuxswap</td>
-<td style="text-align:center">swap</td>
-<td style="text-align:center">8000MB</td>
-<td style="text-align:center">交换分区</td>
+<td align="center">linuxswap</td>
+<td align="center">swap</td>
+<td align="center">8000MB</td>
+<td align="center">交换分区</td>
 </tr>
 <tr>
-<td style="text-align:center">ext4</td>
-<td style="text-align:center">/home</td>
-<td style="text-align:center">剩余容量</td>
-<td style="text-align:center">用户分区</td>
+<td align="center">ext4</td>
+<td align="center">/home</td>
+<td align="center">剩余容量</td>
+<td align="center">用户分区</td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <h4 id="二、更换软件源"><a href="#二、更换软件源" class="headerlink" title="二、更换软件源"></a>二、更换软件源</h4><ul>
 <li><p>sudo pacman-mirrors -m rank -i -c China</p>
 </li>
@@ -409,217 +406,236 @@ var _hmt = _hmt || [];
 <p><img src="/2019/11/04/manjaro%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/pacman.jpg" alt></p>
 </li>
 </ul>
-<h4 id="三、安装需要的软件"><a href="#三、安装需要的软件" class="headerlink" title="三、安装需要的软件"></a>三、安装需要的软件</h4><div class="table-container">
-<table>
+<h4 id="三、安装需要的软件"><a href="#三、安装需要的软件" class="headerlink" title="三、安装需要的软件"></a>三、安装需要的软件</h4><table>
 <thead>
 <tr>
-<th style="text-align:center">软件</th>
-<th style="text-align:center">描述</th>
+<th align="center">软件</th>
+<th align="center">描述</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center">vim</td>
-<td style="text-align:center">vim编辑器</td>
+<tbody><tr>
+<td align="center">vim</td>
+<td align="center">vim编辑器</td>
 </tr>
 <tr>
-<td style="text-align:center">DBeaver</td>
-<td style="text-align:center">数据库</td>
+<td align="center">DBeaver</td>
+<td align="center">数据库</td>
 </tr>
 <tr>
-<td style="text-align:center">mysqlworkbench</td>
-<td style="text-align:center">数据库</td>
+<td align="center">mysqlworkbench</td>
+<td align="center">数据库</td>
 </tr>
 <tr>
-<td style="text-align:center">filezilla</td>
-<td style="text-align:center">ftp软件</td>
+<td align="center">filezilla</td>
+<td align="center">ftp软件</td>
 </tr>
 <tr>
-<td style="text-align:center">remmina</td>
-<td style="text-align:center">远程控制</td>
+<td align="center">remmina</td>
+<td align="center">远程控制</td>
 </tr>
 <tr>
-<td style="text-align:center">teamviewer</td>
-<td style="text-align:center">远程控制</td>
+<td align="center">teamviewer</td>
+<td align="center">远程控制</td>
 </tr>
 <tr>
-<td style="text-align:center">shadowsocks-qt5</td>
-<td style="text-align:center">小飞机</td>
+<td align="center">shadowsocks-qt5</td>
+<td align="center">小飞机</td>
 </tr>
 <tr>
-<td style="text-align:center">libreofficewriter</td>
-<td style="text-align:center">office</td>
+<td align="center">libreofficewriter</td>
+<td align="center">office</td>
 </tr>
 <tr>
-<td style="text-align:center">wps</td>
-<td style="text-align:center">office</td>
+<td align="center">wps</td>
+<td align="center">office</td>
 </tr>
 <tr>
-<td style="text-align:center">gimp</td>
-<td style="text-align:center">画图</td>
+<td align="center">gimp</td>
+<td align="center">画图</td>
 </tr>
 <tr>
-<td style="text-align:center">firefox</td>
-<td style="text-align:center">浏览器</td>
+<td align="center">firefox</td>
+<td align="center">浏览器</td>
 </tr>
 <tr>
-<td style="text-align:center">firefoxdeveloperedition</td>
-<td style="text-align:center">Firefox开发者版</td>
+<td align="center">firefoxdeveloperedition</td>
+<td align="center">Firefox开发者版</td>
 </tr>
 <tr>
-<td style="text-align:center">google-chrome</td>
-<td style="text-align:center">浏览器</td>
+<td align="center">google-chrome</td>
+<td align="center">浏览器</td>
 </tr>
 <tr>
-<td style="text-align:center">typora</td>
-<td style="text-align:center">markdown</td>
+<td align="center">typora</td>
+<td align="center">markdown</td>
 </tr>
 <tr>
-<td style="text-align:center">VisualStudioCode</td>
-<td style="text-align:center">代码</td>
+<td align="center">VisualStudioCode</td>
+<td align="center">代码</td>
 </tr>
 <tr>
-<td style="text-align:center">virtualbox virtualbox-ext-vnc virtualbox-guest-iso virtualbox-ext-oracle</td>
-<td style="text-align:center">虚拟机【注意内核版本，选择与内核版本对应的拓展】 {4.19对应419}</td>
+<td align="center">virtualbox virtualbox-ext-vnc virtualbox-guest-iso virtualbox-ext-oracle</td>
+<td align="center">虚拟机【注意内核版本，选择与内核版本对应的拓展】 {4.19对应419}</td>
 </tr>
 <tr>
-<td style="text-align:center">genymotion</td>
-<td style="text-align:center">安卓虚拟机</td>
+<td align="center">genymotion</td>
+<td align="center">安卓虚拟机</td>
 </tr>
 <tr>
-<td style="text-align:center">kdenlive</td>
-<td style="text-align:center">视频剪辑</td>
+<td align="center">kdenlive</td>
+<td align="center">视频剪辑</td>
 </tr>
 <tr>
-<td style="text-align:center">simplescreenrecorder</td>
-<td style="text-align:center">录屏</td>
+<td align="center">simplescreenrecorder</td>
+<td align="center">录屏</td>
 </tr>
 <tr>
-<td style="text-align:center">deepin.com.qq.im</td>
-<td style="text-align:center">QQ</td>
+<td align="center">deepin.com.qq.im</td>
+<td align="center">QQ</td>
 </tr>
 <tr>
-<td style="text-align:center">deepin.com.qq.office</td>
-<td style="text-align:center">TIM</td>
+<td align="center">deepin.com.qq.office</td>
+<td align="center">TIM</td>
 </tr>
 <tr>
-<td style="text-align:center">Electronic WeChat</td>
-<td style="text-align:center">微信</td>
+<td align="center">Electronic WeChat</td>
+<td align="center">微信</td>
 </tr>
 <tr>
-<td style="text-align:center">baidunetdisk-bin</td>
-<td style="text-align:center">百度网盘</td>
+<td align="center">baidunetdisk-bin</td>
+<td align="center">百度网盘</td>
 </tr>
 <tr>
-<td style="text-align:center">netease-cloud-music</td>
-<td style="text-align:center">网易云音乐</td>
+<td align="center">netease-cloud-music</td>
+<td align="center">网易云音乐</td>
 </tr>
 <tr>
-<td style="text-align:center">qtwebkit-bin</td>
-<td style="text-align:center">搜狗拼音输入法</td>
+<td align="center">qtwebkit-bin</td>
+<td align="center">搜狗拼音输入法</td>
 </tr>
 <tr>
-<td style="text-align:center">fcitx-sogoupinyin fcitx-configtool fcitx-im</td>
-<td style="text-align:center"></td>
+<td align="center">fcitx-sogoupinyin fcitx-configtool fcitx-im</td>
+<td align="center"></td>
 </tr>
 <tr>
-<td style="text-align:center">cairo-dock</td>
-<td style="text-align:center">下方dock</td>
+<td align="center">cairo-dock</td>
+<td align="center">下方dock</td>
 </tr>
 <tr>
-<td style="text-align:center">cairo-dock-plug-ins</td>
-<td style="text-align:center"></td>
+<td align="center">cairo-dock-plug-ins</td>
+<td align="center"></td>
 </tr>
 <tr>
-<td style="text-align:center">nutstore</td>
-<td style="text-align:center">坚果云</td>
+<td align="center">nutstore</td>
+<td align="center">坚果云</td>
 </tr>
 <tr>
-<td style="text-align:center">aria2</td>
-<td style="text-align:center">下载工具</td>
+<td align="center">aria2</td>
+<td align="center">下载工具</td>
 </tr>
 <tr>
-<td style="text-align:center">uget</td>
-<td style="text-align:center">配合aria2下载</td>
+<td align="center">uget</td>
+<td align="center">配合aria2下载</td>
 </tr>
 <tr>
-<td style="text-align:center">oh-my-zsh</td>
-<td style="text-align:center">zsh</td>
+<td align="center">oh-my-zsh</td>
+<td align="center">zsh</td>
 </tr>
 <tr>
-<td style="text-align:center">wireshark-qt</td>
-<td style="text-align:center">抓包工具</td>
+<td align="center">wireshark-qt</td>
+<td align="center">抓包工具</td>
 </tr>
 <tr>
-<td style="text-align:center">flameshot</td>
-<td style="text-align:center">截图工具</td>
+<td align="center">flameshot</td>
+<td align="center">截图工具</td>
 </tr>
 <tr>
-<td style="text-align:center">peek</td>
-<td style="text-align:center">GIF制作</td>
+<td align="center">peek</td>
+<td align="center">GIF制作</td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <h4 id="四、软件相关配置及问题解决方案"><a href="#四、软件相关配置及问题解决方案" class="headerlink" title="四、软件相关配置及问题解决方案"></a>四、软件相关配置及问题解决方案</h4><h5 id="1、QQ、TIM解决方案"><a href="#1、QQ、TIM解决方案" class="headerlink" title="1、QQ、TIM解决方案"></a>1、QQ、TIM解决方案</h5><p>1、安装deepin-wine的windows程序</p>
 <p>腾讯QQ</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S deepin.com.qq.im</span><br><span class="line">env WINEPREFIX=&quot;$HOME/.deepinwine/Deepin-QQ&quot; deepin-wine winecfg</span><br></pre></td></tr></table></figure>
+
 <p>腾讯TIM</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S deepin.com.qq.office</span><br><span class="line">env WINEPREFIX=&quot;$HOME/.deepinwine/Deepin-TIM&quot; deepin-wine winecfg</span><br></pre></td></tr></table></figure>
+
 <p>腾讯微信</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S yay</span><br><span class="line">yay -S deepin-wine-wechat</span><br><span class="line">env WINEPREFIX=&quot;$HOME/.deepinwine/Deepin-Wechat&quot; deepin-wine winecfg</span><br></pre></td></tr></table></figure>
+
 <p>迅雷极速版</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yay -S deepin-wine-thunderspeed</span><br><span class="line">env WINEPREFIX=&quot;$HOME/.deepinwine/Deepin-ThunderSpeed&quot; deepin-wine winecfg</span><br></pre></td></tr></table></figure>
+
 <p>2、安装依赖包</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S gnome-settings-daemon</span><br></pre></td></tr></table></figure>
-<p>3、在【设置】—&gt;【开机和关机】—&gt;【自动启动】—&gt;【添加脚本】—&gt;/usr/lib/gsd-xsettings</p>
+
+<p>3、在【设置】–&gt;【开机和关机】–&gt;【自动启动】–&gt;【添加脚本】–&gt;/usr/lib/gsd-xsettings</p>
 <p>备注：</p>
 <p>env WINEPREFIX=”$HOME/.deepinwine/Deepin-Wechat” deepin-wine winecfg</p>
 <p>这条命令是用来调节程序字体渲染问题的，先运行打来使用一会儿之后再进行调节，如果不能调节需要先退出程序，运行命令后弹出窗口个点击显示，把dpi调为120即可</p>
 <h5 id="2、搜狗输入法解决方案"><a href="#2、搜狗输入法解决方案" class="headerlink" title="2、搜狗输入法解决方案"></a>2、搜狗输入法解决方案</h5><p>1、编辑 .xprofile 文件</p>
 <p>vim .xprofile</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export GTK_IM_MODULE=fcitx</span><br><span class="line">export QT_IM_MODULE=fcitx</span><br><span class="line">export XMODIFIERS="@im=fcitx"</span><br></pre></td></tr></table></figure>
+
 <p>2、无法显示候选框</p>
 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -U https://arch-archive.tuna.tsinghua.edu.cn/2019/04-29/community/os/x86<span class="emphasis">_64/fcitx-qt4-4.2.9.6-1-x86_</span>64.pkg.tar.xz</span><br><span class="line">fcitx配置-&gt; 附加部件中取消 ke开头的一个选项</span><br><span class="line">sudo killall fcitx</span><br><span class="line">killall sogou-qimpanel</span><br><span class="line">fcitx</span><br></pre></td></tr></table></figure>
+
 <p>3、字体安装</p>
 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S wqy-microhei wqy-microhei-lite wqy-bitmapfont wqy-zenhei ttf-arphic-ukai ttf-arphic-uming adobe-source-han-sans-cn-fonts adobe-source-han-serif-cn-fonts noto-fonts-cjk</span><br></pre></td></tr></table></figure>
+
 <h5 id="3、WPS解决方案"><a href="#3、WPS解决方案" class="headerlink" title="3、WPS解决方案"></a>3、WPS解决方案</h5><p>1、 WPS 无法输入中文</p>
 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">1、sudo vim /usr/bin/wps</span><br><span class="line"><span class="code">    # 添加在第二行</span></span><br><span class="line"><span class="code">    export XMODIFIERS="@im=fcitx"</span></span><br><span class="line"><span class="code">    export QT_IM_MODULE="fcitx"</span></span><br><span class="line">  </span><br><span class="line">2、sudo vim /usr/bin/et</span><br><span class="line"><span class="code">    # 添加在第二行</span></span><br><span class="line"><span class="code">    export XMODIFIERS="@im=fcitx"</span></span><br><span class="line"><span class="code">    export QT_IM_MODULE="fcitx"</span></span><br></pre></td></tr></table></figure>
+
 <p>2、WPS字体缺失</p>
 <p>字体下载地址：<a href="https://github.com/pengphei/wps-font-symbols/archive/master.zip" target="_blank" rel="noopener">https://github.com/pengphei/wps-font-symbols/archive/master.zip</a></p>
 <p>安装方法：</p>
 <p>拷贝字体到 usr/share/fontsp</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp -r ./wps-font-symbols /usr/share/fonts/</span><br></pre></td></tr></table></figure>
+
 <p>权限配置</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/share/fonts</span><br><span class="line"></span><br><span class="line">chmod 755 wps-font-symbols</span><br><span class="line"></span><br><span class="line">cd /usr/share/fonts/wps-font-symbols</span><br><span class="line"></span><br><span class="line">chmod 644 *</span><br></pre></td></tr></table></figure>
+
 <p>生成字体缓存信息</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/share/fonts/wps-font-symbols</span><br><span class="line"></span><br><span class="line">mkfontdir</span><br><span class="line"></span><br><span class="line">mkfontscale</span><br><span class="line"></span><br><span class="line">fc-cach</span><br></pre></td></tr></table></figure>
+
 <h5 id="4、chrome浏览器卡顿"><a href="#4、chrome浏览器卡顿" class="headerlink" title="4、chrome浏览器卡顿"></a>4、chrome浏览器卡顿</h5><p>主要是字体的原因：</p>
-<p>【设置】—&gt;【应用程序风格】—&gt;【GNOME/GTK 应用程序风格】—&gt;【字体】—&gt;【Droid Sans】相关字体</p>
+<p>【设置】–&gt;【应用程序风格】–&gt;【GNOME/GTK 应用程序风格】–&gt;【字体】–&gt;【Droid Sans】相关字体</p>
 <h5 id="5、virtualbox解决方案"><a href="#5、virtualbox解决方案" class="headerlink" title="5、virtualbox解决方案"></a>5、virtualbox解决方案</h5><p>激活内核模块</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo modprobe vboxdrv</span><br></pre></td></tr></table></figure>
+
 <p>添加当前用户到<code>virtualbox</code>用户组</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">sudo</span> <span class="selector-tag">gpasswd</span> <span class="selector-tag">-a</span> <span class="selector-attr">[username]</span> <span class="selector-tag">vboxusers</span></span><br></pre></td></tr></table></figure>
+
 <p>其中，<code>[username]</code>换成你的用户名，比如我自己的是这样</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gpasswd -a dealiaxy vboxusers</span><br></pre></td></tr></table></figure>
+
 <p>坑：导入已有的虚拟机无法开机</p>
 <p>把已经有的虚拟机导入的时候会遇到这个问题，主要是虚拟硬盘的位置改变了，在设置里面重新设置回来就好了。<br>但是这时又会报错说虚拟硬盘的SSID有问题，这个时候就要重置一下SSID了～</p>
 <p>切换到虚拟硬盘文件所在目录，执行以下命令：</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">VBoxManage internalcommands sethduuid <span class="tag">&lt;<span class="name">file.vdi</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
 <p>把<code>&lt;file.vdi&gt;</code>换成你的虚拟硬盘文件名～</p>
 <p>安装增强工具：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://download.virtualbox.org/virtualbox/6.0.10/VBoxGuestAdditions_6.0.10.iso</span><br></pre></td></tr></table></figure>
+
 <h5 id="6、aria2相关配置"><a href="#6、aria2相关配置" class="headerlink" title="6、aria2相关配置"></a>6、aria2相关配置</h5><p>1、进入 /etc 目录，新建一个文件夹和一个session文件并设置权限</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd /etc</span><br><span class="line">mkdir aria2</span><br><span class="line">touch aria2.session</span><br><span class="line">sudo chmod 777 /aria2/aria2.session</span><br></pre></td></tr></table></figure>
+
 <p>2、新建配置文件并编辑</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim aria2.conf</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">#＝＝＝＝＝＝＝＝＝文件保存目录自行修改</span><br><span class="line">dir=/home/username/Desktop/Downloads #username根据实际情况修改</span><br><span class="line">disable-ipv6=true</span><br><span class="line"> </span><br><span class="line">#打开rpc的目的是为了给web管理端用</span><br><span class="line">enable-rpc=true</span><br><span class="line">rpc-allow-origin-all=true</span><br><span class="line">rpc-listen-all=true</span><br><span class="line">#rpc-listen-port=6800</span><br><span class="line">#断点续传</span><br><span class="line">continue=true</span><br><span class="line">input-file=/etc/aria2/aria2.session </span><br><span class="line">save-session=/etc/aria2/aria2.session</span><br><span class="line"> </span><br><span class="line">#最大同时下载任务数</span><br><span class="line">max-concurrent-downloads=20</span><br><span class="line"> </span><br><span class="line">save-session-interval=120</span><br><span class="line"> </span><br><span class="line"># Http/FTP 相关</span><br><span class="line">connect-timeout=120</span><br><span class="line">#lowest-speed-limit=10K</span><br><span class="line">#同服务器连接数</span><br><span class="line">max-connection-per-server=10</span><br><span class="line">#max-file-not-found=2</span><br><span class="line">#最小文件分片大小, 下载线程数上限取决于能分出多少片, 对于小文件重要</span><br><span class="line">min-split-size=10M</span><br><span class="line">#单文件最大线程数, 路由建议值: 5</span><br><span class="line">split=10</span><br><span class="line">check-certificate=false</span><br><span class="line">#http-no-cache=true</span><br></pre></td></tr></table></figure>
+
 <p>3、启动</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo aria2c --conf-path=/etc/aria2/aria2.conf</span><br></pre></td></tr></table></figure>
+
 <p>如果没有提示错误，按ctrl+c停止运行命令，可转为后台运行：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo aria2c --conf-path=/etc/aria2/aria2.conf -D 1安装chrome插件【aira2 for chrome】</span><br></pre></td></tr></table></figure>
+
 <p>4、配置</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">【ariaNg设置】--&gt;【RPC设置】--&gt;设置aria2地址 [http://localhost:6800](http://localhost:6800/)</span><br></pre></td></tr></table></figure>
+
 <p>提示链接成功即可</p>
 <p>5、使用</p>
 <ul>
@@ -627,7 +643,7 @@ var _hmt = _hmt || [];
 </li>
 <li><p>服务器部署【xxxxxxxx表示用户名】</p>
 <ul>
-<li>sudo docker run -d —name aria2 -p 6800:6800 -e PUID=1000 -e PGID=1000 -e ENABLE_AUTH=ture -e RPC_SECRET=Hello -e ARIA2_SSL=false -e ARIA2_USER=xxxxxxxx -e ARIA2_PWD=123456789 -v /home/xxxxxxxx/aria2:/data wahyd4/aria2-ui</li>
+<li>sudo docker run -d –name aria2 -p 6800:6800 -e PUID=1000 -e PGID=1000 -e ENABLE_AUTH=ture -e RPC_SECRET=Hello -e ARIA2_SSL=false -e ARIA2_USER=xxxxxxxx -e ARIA2_PWD=123456789 -v /home/xxxxxxxx/aria2:/data wahyd4/aria2-ui</li>
 <li>【ARIA2_USER】用户名：xxxxxxxx</li>
 <li>【 ARIA2_PWD】密码：123456789</li>
 </ul>
@@ -683,75 +699,68 @@ var _hmt = _hmt || [];
 </ul>
 <h5 id="9、适配-Firefox-和-LibreOffice"><a href="#9、适配-Firefox-和-LibreOffice" class="headerlink" title="9、适配 Firefox 和 LibreOffice"></a>9、适配 Firefox 和 LibreOffice</h5><p><code>.xprofile</code> 中加入下面这一行：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export SAL_USE_VCLPLUGIN=gtk</span><br></pre></td></tr></table></figure>
+
 <h5 id="10、zip文件解压乱码解决方案"><a href="#10、zip文件解压乱码解决方案" class="headerlink" title="10、zip文件解压乱码解决方案"></a>10、zip文件解压乱码解决方案</h5><p>安装p7zip-natspec 和 unzip-natspec 即可</p>
-<h4 id="五、插件与主题"><a href="#五、插件与主题" class="headerlink" title="五、插件与主题"></a>五、插件与主题</h4><h5 id="1、桌面小部件及主题"><a href="#1、桌面小部件及主题" class="headerlink" title="1、桌面小部件及主题"></a>1、桌面小部件及主题</h5><div class="table-container">
-<table>
+<h4 id="五、插件与主题"><a href="#五、插件与主题" class="headerlink" title="五、插件与主题"></a>五、插件与主题</h4><h5 id="1、桌面小部件及主题"><a href="#1、桌面小部件及主题" class="headerlink" title="1、桌面小部件及主题"></a>1、桌面小部件及主题</h5><table>
 <thead>
 <tr>
-<th style="text-align:center">名称</th>
-<th style="text-align:center">描述</th>
+<th align="center">名称</th>
+<th align="center">描述</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center">Simple Monitor</td>
-<td style="text-align:center">系统描述</td>
+<tbody><tr>
+<td align="center">Simple Monitor</td>
+<td align="center">系统描述</td>
 </tr>
 <tr>
-<td style="text-align:center">NetSpeed widget</td>
-<td style="text-align:center">网速显示</td>
+<td align="center">NetSpeed widget</td>
+<td align="center">网速显示</td>
 </tr>
 <tr>
-<td style="text-align:center">取色器</td>
-<td style="text-align:center">系统自带</td>
+<td align="center">取色器</td>
+<td align="center">系统自带</td>
 </tr>
 <tr>
-<td style="text-align:center">Application title</td>
-<td style="text-align:center">应用标题</td>
+<td align="center">Application title</td>
+<td align="center">应用标题</td>
 </tr>
 <tr>
-<td style="text-align:center">breezemite</td>
-<td style="text-align:center">窗口装饰</td>
+<td align="center">breezemite</td>
+<td align="center">窗口装饰</td>
 </tr>
 <tr>
-<td style="text-align:center">clear</td>
-<td style="text-align:center">dock主题</td>
+<td align="center">clear</td>
+<td align="center">dock主题</td>
 </tr>
-</tbody>
-</table>
-</div>
-<h5 id="2、油猴插件（不能同步）"><a href="#2、油猴插件（不能同步）" class="headerlink" title="2、油猴插件（不能同步）"></a>2、油猴插件（不能同步）</h5><div class="table-container">
-<table>
+</tbody></table>
+<h5 id="2、油猴插件（不能同步）"><a href="#2、油猴插件（不能同步）" class="headerlink" title="2、油猴插件（不能同步）"></a>2、油猴插件（不能同步）</h5><table>
 <thead>
 <tr>
-<th style="text-align:center">名称</th>
-<th style="text-align:center">描述</th>
+<th align="center">名称</th>
+<th align="center">描述</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center">google-helper</td>
-<td style="text-align:center">google助手</td>
+<tbody><tr>
+<td align="center">google-helper</td>
+<td align="center">google助手</td>
 </tr>
 <tr>
-<td style="text-align:center">Bilibili Evolved</td>
-<td style="text-align:center">B站视频下载</td>
+<td align="center">Bilibili Evolved</td>
+<td align="center">B站视频下载</td>
 </tr>
 <tr>
-<td style="text-align:center">针对百度网盘视频播放器增强插件</td>
-<td style="text-align:center">百度网盘视频倍速</td>
+<td align="center">针对百度网盘视频播放器增强插件</td>
+<td align="center">百度网盘视频倍速</td>
 </tr>
 <tr>
-<td style="text-align:center">懒人专用</td>
-<td style="text-align:center">vip破解</td>
+<td align="center">懒人专用</td>
+<td align="center">vip破解</td>
 </tr>
 <tr>
-<td style="text-align:center">百度网盘资源搜索引擎聚合</td>
-<td style="text-align:center">网盘资源搜索</td>
+<td align="center">百度网盘资源搜索引擎聚合</td>
+<td align="center">网盘资源搜索</td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <h4 id="六、手残记录"><a href="#六、手残记录" class="headerlink" title="六、手残记录"></a>六、手残记录</h4><h5 id="1、安装闭源AMD驱动以后无法进入桌面坏境"><a href="#1、安装闭源AMD驱动以后无法进入桌面坏境" class="headerlink" title="1、安装闭源ＡＭＤ驱动以后无法进入桌面坏境"></a>1、安装闭源ＡＭＤ驱动以后无法进入桌面坏境</h5><ul>
 <li><p>开机 Ctrl+Alt+F2 进入ｔｔｙ２</p>
 <ul>
@@ -801,6 +810,9 @@ var _hmt = _hmt || [];
 </li>
 <li><p>设置开机启动：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl enable sddm</span><br></pre></td></tr></table></figure>
+
+
+
 </li>
 </ul>
 </li>

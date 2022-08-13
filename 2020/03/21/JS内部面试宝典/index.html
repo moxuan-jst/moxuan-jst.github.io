@@ -375,7 +375,7 @@ var _hmt = _hmt || [];
 </ul><a id="more"></a>
 
 
-<ol>
+<ol start="2">
 <li><p>对象的存储过程：</p>
 <ol>
 <li>开辟一个空间地址</li>
@@ -424,70 +424,66 @@ var _hmt = _hmt || [];
 <p>第二次挥手：当服务端收到<code>FIN</code>后，会发送<code>ACK</code>给客户端，表示服务端已经知道客户端传完了。客户端收到<code>ACK</code>以后就会把传递数据给服务端的通道关闭。</p>
 <p>第三次挥手：当服务端把响应的数据发送完毕后，会发送一个<code>FIN</code>给客户端，告知客户端响应的数据已经发送完毕。</p>
 <p>第四次挥手：当客户端收到<code>FIN</code>后，会发送一个<code>ACK</code>数据包给服务端，克制服务端，客户端已经知道数据发送完毕；服务端收到<code>ACK</code>码后，可以安心的把数据传递通道关闭。</p>
-<ol>
+<ol start="2">
 <li>HTTP常用状态码</li>
 </ol>
-<div class="table-container">
 <table>
 <thead>
 <tr>
-<th style="text-align:center">状态码</th>
-<th style="text-align:center">描述</th>
+<th align="center">状态码</th>
+<th align="center">描述</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center">200</td>
-<td style="text-align:center">正常</td>
+<tbody><tr>
+<td align="center">200</td>
+<td align="center">正常</td>
 </tr>
 <tr>
-<td style="text-align:center">204</td>
-<td style="text-align:center">请求成功，但服务端没有内容</td>
+<td align="center">204</td>
+<td align="center">请求成功，但服务端没有内容</td>
 </tr>
 <tr>
-<td style="text-align:center">301</td>
-<td style="text-align:center">永久重定向</td>
+<td align="center">301</td>
+<td align="center">永久重定向</td>
 </tr>
 <tr>
-<td style="text-align:center">302</td>
-<td style="text-align:center">临时重定向</td>
+<td align="center">302</td>
+<td align="center">临时重定向</td>
 </tr>
 <tr>
-<td style="text-align:center">304</td>
-<td style="text-align:center">缓存</td>
+<td align="center">304</td>
+<td align="center">缓存</td>
 </tr>
 <tr>
-<td style="text-align:center">307</td>
-<td style="text-align:center">临时重定向，在重定向时不会改变 method</td>
+<td align="center">307</td>
+<td align="center">临时重定向，在重定向时不会改变 method</td>
 </tr>
 <tr>
-<td style="text-align:center">400</td>
-<td style="text-align:center">参数传递不当</td>
+<td align="center">400</td>
+<td align="center">参数传递不当</td>
 </tr>
 <tr>
-<td style="text-align:center">401</td>
-<td style="text-align:center">权限不够</td>
+<td align="center">401</td>
+<td align="center">权限不够</td>
 </tr>
 <tr>
-<td style="text-align:center">403</td>
-<td style="text-align:center">拒绝响应</td>
+<td align="center">403</td>
+<td align="center">拒绝响应</td>
 </tr>
 <tr>
-<td style="text-align:center">404</td>
-<td style="text-align:center">客户端请求的资源或者数据不存在</td>
+<td align="center">404</td>
+<td align="center">客户端请求的资源或者数据不存在</td>
 </tr>
 <tr>
-<td style="text-align:center">500</td>
-<td style="text-align:center">服务端内部错误</td>
+<td align="center">500</td>
+<td align="center">服务端内部错误</td>
 </tr>
 <tr>
-<td style="text-align:center">502</td>
-<td style="text-align:center">网关错误</td>
+<td align="center">502</td>
+<td align="center">网关错误</td>
 </tr>
-</tbody>
-</table>
-</div>
-<ol>
+</tbody></table>
+<ol start="3">
 <li>HTTPS主要解决的三个安全问题</li>
 </ol>
 <ul>
@@ -495,7 +491,7 @@ var _hmt = _hmt || [];
 <li>防篡改</li>
 <li>确认对方身份</li>
 </ul>
-<ol>
+<ol start="4">
 <li>Ajax四步</li>
 </ol>
 <ul>
@@ -504,42 +500,38 @@ var _hmt = _hmt || [];
 <li>设置响应HTTP请求状态变化的函数</li>
 <li>发送HTTP请求</li>
 </ul>
-<ol>
+<ol start="5">
 <li><code>cookie</code>、<code>localStorage</code>以及<code>sessionStorage</code>的异同点</li>
 </ol>
-<div class="table-container">
 <table>
 <thead>
 <tr>
-<th style="text-align:center">分类</th>
-<th style="text-align:center">生命周期</th>
-<th style="text-align:center">存储容量</th>
-<th style="text-align:center">存储位置</th>
+<th align="center">分类</th>
+<th align="center">生命周期</th>
+<th align="center">存储容量</th>
+<th align="center">存储位置</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center">cookie</td>
-<td style="text-align:center">默认保存在内存中，随浏览器关闭失效（如果设置过期时间，在到过期时间后失效）</td>
-<td style="text-align:center">4KB</td>
-<td style="text-align:center">保存在客户端，每次请求时都会带上</td>
+<tbody><tr>
+<td align="center">cookie</td>
+<td align="center">默认保存在内存中，随浏览器关闭失效（如果设置过期时间，在到过期时间后失效）</td>
+<td align="center">4KB</td>
+<td align="center">保存在客户端，每次请求时都会带上</td>
 </tr>
 <tr>
-<td style="text-align:center">localStorage</td>
-<td style="text-align:center">理论上永久有效，除非主动清除</td>
-<td style="text-align:center">4.98MB</td>
-<td style="text-align:center">保存在客户端，不与服务端交互，节省网络流量</td>
+<td align="center">localStorage</td>
+<td align="center">理论上永久有效，除非主动清除</td>
+<td align="center">4.98MB</td>
+<td align="center">保存在客户端，不与服务端交互，节省网络流量</td>
 </tr>
 <tr>
-<td style="text-align:center">sessionStorage</td>
-<td style="text-align:center">仅在当前网页会话下有效，关闭页面或浏览器后会被清除</td>
-<td style="text-align:center">4.98MB</td>
-<td style="text-align:center">同上</td>
+<td align="center">sessionStorage</td>
+<td align="center">仅在当前网页会话下有效，关闭页面或浏览器后会被清除</td>
+<td align="center">4.98MB</td>
+<td align="center">同上</td>
 </tr>
-</tbody>
-</table>
-</div>
-<ol>
+</tbody></table>
+<ol start="6">
 <li>Token相关</li>
 </ol>
 <ul>
@@ -550,12 +542,12 @@ var _hmt = _hmt || [];
 <li>客户端每次向服务端请求资源的时候需要带着服务端签发的 token</li>
 <li>服务端收到请求，然后去验证客户端请求里面带着 token，如果验证成功，就向客户端返回请求的数据</li>
 </ul>
-<ol>
+<ol start="7">
 <li>同源策略：</li>
 </ol>
 <p>客户端脚本（JavaScript）的重要的安全度量标准。其目的就是防止某个文档或者脚本从多个不同源装载。</p>
 <p>同源策略指的是：协议、域名、端口相同。</p>
-<ol>
+<ol start="8">
 <li><code>XSS</code>和<code>CSRF</code>区别;</li>
 </ol>
 <p>跨站脚本攻击（XSS）：恶意攻击者往Web页面里插入恶意 Script 代码，当用户浏览该页时，嵌入其中 Web 里面的 Script 代码会被执行，从而达到恶意攻击用户的目的。</p>
@@ -579,7 +571,7 @@ var _hmt = _hmt || [];
 <li><code>v-show</code>是CSS切换，<code>v-if</code>是完整的销毁和重建</li>
 <li>频繁切换时使用<code>v-show</code>，运行时较少改变时用<code>v-if</code></li>
 </ul>
-<ol>
+<ol start="4">
 <li><p><code>MVVM</code></p>
 <p>M ——Model：表示数据模型，也可以在Model中定义数据修改和操作的业务逻辑；</p>
 <p>V —— View：表示UI组件，负责将数据模型转化为 UI 展现出来；</p>
@@ -596,7 +588,7 @@ var _hmt = _hmt || [];
 <li>View 更新变化数据使用户得到反馈</li>
 </ul>
 <p><img src="/2020/03/21/JS%E5%86%85%E9%83%A8%E9%9D%A2%E8%AF%95%E5%AE%9D%E5%85%B8/clip_image003.png" alt="image.png"></p>
-<ol>
+<ol start="6">
 <li><code>SPA</code>单页应用</li>
 </ol>
 <ul>
@@ -613,11 +605,12 @@ var _hmt = _hmt || [];
 </ul>
 </li>
 </ul>
-<ol>
+<ol start="7">
 <li><code>computed</code>和<code>watch</code>的区别和运用场景</li>
 </ol>
 <ul>
-<li><code>computed</code>：计算属性，依赖其他属性值并且<code>computed</code>的值有缓存，只有它以来的属性值发生变化，下一次获取<code>computed</code>的值时才会重新计算。</li>
+<li><p><code>computed</code>：计算属性，依赖其他属性值并且<code>computed</code>的值有缓存，只有它以来的属性值发生变化，下一次获取<code>computed</code>的值时才会重新计算。</p>
+</li>
 <li><p><code>watch</code>：更多的是“观察”的作用，类似于某些数据的监听回调，每当监听的数据变化时都会执行回调进行后续操作。</p>
 </li>
 <li><p>应用场景：</p>
@@ -627,7 +620,7 @@ var _hmt = _hmt || [];
 </ul>
 </li>
 </ul>
-<ol>
+<ol start="8">
 <li><p>Vue 组件的 <code>data</code>为什么必须是函数？</p>
 <p>因为组件是可以复用的，JS 里对象是引用关系，如果组件 data 是一个对象，那么子组件中的 data 属性会相互污染，产生副作用。</p>
 </li>
@@ -639,7 +632,7 @@ var _hmt = _hmt || [];
 <li>Vuex 的状态存储是响应式的。当 Vue 组件从 store 中读取状态的时候，若 store 中的状态发生变化，那么相应的组件也会高效更新。</li>
 <li>改变 store 中的状态的唯一途径就是显示的提交 （commit）mutation。这样使得我们可以方便跟踪每一个状态的变化。</li>
 </ul>
-<ol>
+<ol start="10">
 <li><p>Vue 中的 <code>key</code> 有什么作用？</p>
 <p>Vue 中的 <code>key</code>的作用是： <code>key</code> 是为了 Vue 中 <code>vnode</code> 的唯一标记，通过 <code>key</code>，我们的diff 操作可以更准确、更快速。</p>
 </li>

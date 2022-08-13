@@ -349,6 +349,7 @@ var _hmt = _hmt || [];
 <p>​        本来以为放在上面可以直接用播放器看的，结果用smplayer播放的时候，居然播放不了，没办法了，只能google一下了，看到一篇博客，所以实践了一下，居然成了，那就记录一下。</p>
 <p><img src="/2019/11/12/%E7%94%A8%E9%97%B2%E7%BD%AE%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E8%B7%A8%E5%B9%B3%E5%8F%B0%E4%BA%91%E6%92%AD%E5%B9%B3%E5%8F%B0/fenmian.png" alt></p>
 <a id="more"></a>
+
 <p>​        首先说一下我的服务器配置：（我用的是一台华为云的服务器，1G1核的，最便宜的那种）</p>
 <p><img src="/2019/11/12/%E7%94%A8%E9%97%B2%E7%BD%AE%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E8%B7%A8%E5%B9%B3%E5%8F%B0%E4%BA%91%E6%92%AD%E5%B9%B3%E5%8F%B0/info.png" alt="info"></p>
 <h3 id="关于Plex"><a href="#关于Plex" class="headerlink" title="关于Plex"></a>关于Plex</h3><p><img src="/2019/11/12/%E7%94%A8%E9%97%B2%E7%BD%AE%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E8%B7%A8%E5%B9%B3%E5%8F%B0%E4%BA%91%E6%92%AD%E5%B9%B3%E5%8F%B0/plex.png" alt="plex"></p>
@@ -356,13 +357,16 @@ var _hmt = _hmt || [];
 <p><img src="/2019/11/12/%E7%94%A8%E9%97%B2%E7%BD%AE%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E8%B7%A8%E5%B9%B3%E5%8F%B0%E4%BA%91%E6%92%AD%E5%B9%B3%E5%8F%B0/price.png" alt="price"></p>
 <h3 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h3><p>Plex的部署其实是很简单的，在<a href="https://www.plex.tv/downloads/" target="_blank" rel="noopener">https://www.plex.tv/downloads/</a> 寻找到适合自己系统的安装包，我用的是centos7 x64的安装包.</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">wget https://downloads.plex.tv/plex-media-server-new/1.18.1.2019-c186313fe/redhat/plexmediaserver-1.18.1.2019-c186313fe.x86_64.rpm</span><br><span class="line">sudo yum localinstall plexmediaserver-1.18.1.2019-c186313fe.x86_64.rpm</span><br><span class="line">mkdir -p /var/lib/plexmediaserver</span><br><span class="line">chown -R plex:plex /var/lib/plexmediaserver</span><br><span class="line">systemctl start plexmediaserver.service</span><br></pre></td></tr></table></figure>
+
 <p>这样子Plex就部署完成了，由于云服务器有安全组策略，所以需要去安全组策略中将32400端口开放，（因为我之前服务器装过宝塔，所以还需要将宝塔记得开放相应的端口，当然，没有安装的不需要管），plex的默认端口为32400。</p>
 <p>但是，刚部署完成的Plex出于安全考虑，不支持从外部进行访问，只能通过服务器本地进行访问，而偏偏我们一般不会在服务器上安装桌面环境，因此我们可以通过SSH Tunnel的端口转发，把服务器上的Plex端口转发到我们本地来完成首次登录。（由于我的笔记本装的 manajaro KDE，所以我这里使用ssh命令操作，参考博客使用的是putty，Windows可以参考最下方的参考博客）。</p>
 <p>​        采用本地端口转发，这里说一下什么是本地端口转发？</p>
 <p>​        所谓本地端口转发，就是将发送到本地端口的请求，转发到目标端口。这样，就可以通过访问本地端口，来访问目标端口的服务。使用-L属性，就可以指定需要转发的端口，语法是这样的:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-L 本地网卡地址:本地端口:目标地址:目标端口</span><br></pre></td></tr></table></figure>
+
 <p>​        通过<strong>本地端口转发</strong>，可以将发送到本地主机A1端口2000的请求，转发到远程云主机B1的32400端口。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -L localhost:2000:localhost:32400 root@xxx.xxx.xxx.xxx(服务器IP)</span><br></pre></td></tr></table></figure>
+
 <p>​        这样，在本地主机A1上可以通过访问<a href="http://localhost:2000/" target="_blank" rel="noopener">http://localhost:2000</a>来访问远程云主机B1上的plex服务。</p>
 <p>​        接着照常登录SSH，登录后使用浏览器打开<a href="http://localhost/" target="_blank" rel="noopener">http://localhost</a>:12345/web，就可以看到Plex界面了。注册完账户后，在设置 → 服务器中，开启远程访问，会给你提示一个网址，如下图：</p>
 <p><img src="/2019/11/12/%E7%94%A8%E9%97%B2%E7%BD%AE%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E8%B7%A8%E5%B9%B3%E5%8F%B0%E4%BA%91%E6%92%AD%E5%B9%B3%E5%8F%B0/yuancheng.png" alt="yuancheng"></p>

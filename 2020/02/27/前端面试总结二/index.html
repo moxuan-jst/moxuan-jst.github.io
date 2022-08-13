@@ -274,7 +274,7 @@ var _hmt = _hmt || [];
             <span class="post-meta-item-icon">
               <i class="fa fa-keyboard-o"></i>
                 <span title="post.wordcount">
-                  本篇博文共计 3.9k 字
+                  本篇博文共计 3.6k 字
                 </span>
             </span>
           </span>        
@@ -283,7 +283,7 @@ var _hmt = _hmt || [];
             <span class="post-meta-item-icon">
               <i class="fa fa-hourglass-half"></i>
               <span title="post.min2read">
-                阅读约 15 分钟
+                阅读约 14 分钟
               </span>
             </span>
           </span>
@@ -346,6 +346,7 @@ var _hmt = _hmt || [];
       
         <p><img src="/2020/02/27/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93%E4%BA%8C/14004_3c55926927.jpg" alt></p>
 <a id="more"></a>
+
 <h2 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h2><ol>
 <li>标准模式和兼容模式各有什么区别：</li>
 </ol>
@@ -353,14 +354,14 @@ var _hmt = _hmt || [];
 <li>标准模式的排版和 JS 运作模式都是以浏览器支持的最高标准运行。</li>
 <li>兼容模式以宽松的向后兼容的方式显示，模拟老式浏览器的行为以防止站点无法工作。</li>
 </ul>
-<ol>
+<ol start="2">
 <li>H5 为什么只需写<code>&lt;! DOCTYPE html&gt;</code></li>
 </ol>
 <ul>
 <li>H5 不基于SGML， 因此不需要都 DTD 进行引用，但需要 doctype 来规范浏览器的行为。</li>
 <li>而 H4.01 基于 SGML， 所以需要对 DTD 进行引用。</li>
 </ul>
-<ol>
+<ol start="3">
 <li>行内元素有哪些？块元素有哪些？空(void)元素有哪些？</li>
 </ol>
 <ul>
@@ -371,7 +372,7 @@ var _hmt = _hmt || [];
 </ul>
 </li>
 </ul>
-<ol>
+<ol start="4">
 <li>页面导入样式时，使用 <code>link</code>和<code>@import</code>有什么区别？</li>
 </ol>
 <ul>
@@ -380,7 +381,7 @@ var _hmt = _hmt || [];
 <li><code>link</code>无兼容问题。</li>
 <li><code>link</code>支持使用 JS 控制 DOM 改变样式。</li>
 </ul>
-<ol>
+<ol start="5">
 <li>H5 的新特新移除了那些元素？如何解决兼容性问题？如何区分 H5 和 HTML？</li>
 </ol>
 <ul>
@@ -405,11 +406,10 @@ var _hmt = _hmt || [];
 </li>
 <li><p>兼容性：</p>
 <ul>
-<li><p>```html</p>
-<!-- [if it IE 9] -->
-<pre><code>&lt;script src=&quot;http://html5shim.googlecode.com/svn/trunk/html5.js&quot;&gt;&lt;/script&gt;
-</code></pre><!-- [Endif] -->
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  - 通过 `document.createElement`产生标签。</span><br><span class="line"></span><br><span class="line">- 区分H5:</span><br><span class="line"></span><br><span class="line">  - DOCTYPE 声明</span><br><span class="line">  - 新增结构元素</span><br><span class="line">  - 功能元素</span><br><span class="line"></span><br><span class="line">6. 对 HTML 语义化的理解：</span><br><span class="line"></span><br><span class="line">- 用正确的标签做正确的事。</span><br><span class="line">- 结构更清晰，便于浏览器、搜索引擎解析。</span><br><span class="line">- 易阅读。</span><br><span class="line">- 便于维护。</span><br><span class="line"></span><br><span class="line">7. H5 的离线存储。</span><br><span class="line"></span><br><span class="line">- 原理：基于 `appcache` 文件的缓存机制，通过这个文件上的解析清单离线存储资源，处于离线状态时，浏览器会通过被离线存储的数据进行页面展示。</span><br><span class="line"></span><br><span class="line">- 使用：</span><br><span class="line"></span><br><span class="line">  - 在页面都不加入一个`manifest`属性。</span><br><span class="line"></span><br><span class="line">    ```html</span><br><span class="line">    &lt;html manifest=&quot;xxx.appcache&quot;&gt;</span><br></pre></td></tr></table></figure>
+<li><pre><code class="html"><span class="comment">&lt;!-- [if it IE 9] --&gt;</span>
+    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"http://html5shim.googlecode.com/svn/trunk/html5.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span>
+<span class="comment">&lt;!-- [Endif] --&gt;</span>
+<span class="comment"><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  - 通过 `document.createElement`产生标签。</span><br><span class="line"></span><br><span class="line">- 区分H5:</span><br><span class="line"></span><br><span class="line">  - DOCTYPE 声明</span><br><span class="line">  - 新增结构元素</span><br><span class="line">  - 功能元素</span><br><span class="line"></span><br><span class="line">6. 对 HTML 语义化的理解：</span><br><span class="line"></span><br><span class="line">- 用正确的标签做正确的事。</span><br><span class="line">- 结构更清晰，便于浏览器、搜索引擎解析。</span><br><span class="line">- 易阅读。</span><br><span class="line">- 便于维护。</span><br><span class="line"></span><br><span class="line">7. H5 的离线存储。</span><br><span class="line"></span><br><span class="line">- 原理：基于 `appcache` 文件的缓存机制，通过这个文件上的解析清单离线存储资源，处于离线状态时，浏览器会通过被离线存储的数据进行页面展示。</span><br><span class="line"></span><br><span class="line">- 使用：</span><br><span class="line"></span><br><span class="line">  - 在页面都不加入一个`manifest`属性。</span><br><span class="line"></span><br><span class="line">    ```html</span><br><span class="line">    &lt;html manifest=&quot;xxx.appcache&quot;&gt;</span><br></pre></td></tr></table></figure></span></code></pre>
 </li>
 <li><p>新建一个<code>cache.manifest</code>或者<code>cache.appcache</code>文件</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">CACHE MANIFEST</span><br><span class="line"># cache 之后的资源都会被缓存</span><br><span class="line">CACHE:</span><br><span class="line">main.html</span><br><span class="line">style.css</span><br><span class="line"># network 之后的资源不会缓存</span><br><span class="line">NETWORK:</span><br><span class="line">account/ # account 目录不会被缓存</span><br></pre></td></tr></table></figure>
@@ -419,7 +419,7 @@ var _hmt = _hmt || [];
 </ul>
 </li>
 </ul>
-<ol>
+<ol start="8">
 <li><code>iframe</code> 有哪些缺点：</li>
 </ol>
 <ul>
@@ -428,20 +428,20 @@ var _hmt = _hmt || [];
 <li><code>iframe</code> 和主页面共享连接池，而浏览器对相同域的连接有限制，会影响页面的并行加载。</li>
 <li>如果要是用 <code>iframe</code> ，最好通过 JS 动态给<code>iframe</code> 添加 <code>src</code> 属性。</li>
 </ul>
-<ol>
+<ol start="9">
 <li>H5 的 <code>form</code>如何关闭自动完成功能？</li>
 </ol>
 <ul>
 <li>设置<code>autocomplete=off</code></li>
 </ul>
-<ol>
+<ol start="10">
 <li>如何实现浏览器内多个标签页之间的通信？</li>
 </ol>
 <ul>
 <li>WebSocket、shared worker：</li>
 <li>也可以调用 localStorage 、cookies 等本地存储方式：localStorage 会触发一个事件，通过监听该事件，控制它的值来进行页面通信。</li>
 </ul>
-<ol>
+<ol start="11">
 <li>页面验证码是干什么的？是为了解决什么安全问题？</li>
 </ol>
 <ul>
@@ -465,7 +465,7 @@ var _hmt = _hmt || [];
 <li>可继承样式：font-size、font-family、color、ul、li、dl、dd、dt</li>
 <li>不可继承样式：border、padding、margin、width、height</li>
 </ul>
-<ol>
+<ol start="2">
 <li>CSS 优先级算法</li>
 </ol>
 <ul>
@@ -478,7 +478,7 @@ var _hmt = _hmt || [];
 </ul>
 </li>
 </ul>
-<ol>
+<ol start="3">
 <li>如何居中 div</li>
 </ol>
 <ul>
@@ -498,7 +498,7 @@ var _hmt = _hmt || [];
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 利用 flex 布局 */</span></span><br><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: flex;</span><br><span class="line">    <span class="attribute">align-items</span>: center;</span><br><span class="line">    <span class="attribute">justify-content</span>: center;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.container</span> <span class="selector-tag">div</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<ol>
+<ol start="4">
 <li>display 的值及作用：</li>
 </ol>
 <ul>
@@ -510,7 +510,7 @@ var _hmt = _hmt || [];
 <li>table：作为块级表格显示。</li>
 <li>inherit：继承父类属性值。</li>
 </ul>
-<ol>
+<ol start="5">
 <li>CSS3 新特性：</li>
 </ol>
 <ul>
@@ -522,7 +522,7 @@ var _hmt = _hmt || [];
 <li>线性渐变：<code>gradient</code></li>
 <li>旋转：<code>transform</code></li>
 </ul>
-<ol>
+<ol start="6">
 <li>解释 CSS3 的 <code>flexbox</code>（弹性盒模型）及适用场景。</li>
 </ol>
 <ul>
@@ -532,7 +532,7 @@ var _hmt = _hmt || [];
 <li>它的所有子元素自动成员容器成员，称为项目。</li>
 <li>常规布局是基于块和内联流动方向，而 flex 布局是基于 flex-flow 流，可以很方便的用来做居中，能对不同屏幕大小自适应，在布局上有了更灵活的空间。</li>
 </ul>
-<ol>
+<ol start="7">
 <li>用纯 CSS 创建一个三角形的原理是什么？</li>
 </ol>
 <ul>
@@ -540,14 +540,14 @@ var _hmt = _hmt || [];
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#demo</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">border-width</span>: <span class="number">20px</span>;</span><br><span class="line">    <span class="attribute">border-style</span>: solid;</span><br><span class="line">    <span class="attribute">border-color</span>: transparent transparent red transparent;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<ol>
+<ol start="8">
 <li>CSS 多列等高如何实现？</li>
 </ol>
 <ul>
 <li>利用 padding-bottom | margin-bottom 正负值相乘；</li>
 <li>设置父容器超出隐藏（<code>overflow：hidden</code>），这样子父容器的高度就还是它里面的列没有设定 padding-bottom 时的高度，当它里面的任一列高度增加，则父容器的高度被撑到里面最高那列的高度，其他比这列矮的列会用他们的 padding-bottom 补偿这部分高度差。</li>
 </ul>
-<ol>
+<ol start="9">
 <li>浏览器兼容性问题，原因，解决方法：</li>
 </ol>
 <ul>
@@ -565,6 +565,7 @@ var _hmt = _hmt || [];
 </li>
 <li><p>IE6 双边距 bug：块属性标签 float 后，又有横行的 margin 的情况下，在 IE6 显示 margin 比设置大，浮动 IE 产生的双边距。</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 这种情况 IE6 会产生 20px 的距离 */</span></span><br><span class="line"><span class="selector-id">#box</span> &#123;</span><br><span class="line">    <span class="attribute">float</span>: left;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">100px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>float 标签样式中加入 <code>_display: inline</code></li>
 </ul>
@@ -584,7 +585,7 @@ var _hmt = _hmt || [];
 </ul>
 </li>
 </ul>
-<ol>
+<ol start="10">
 <li>li 与 li 之间看不见的空间间隔是什么原因引起的，如何解决？</li>
 </ol>
 <ul>
@@ -593,13 +594,13 @@ var _hmt = _hmt || [];
 </ul>
 </li>
 </ul>
-<ol>
+<ol start="11">
 <li>为什么要初始化样式？</li>
 </ol>
 <ul>
 <li>因为浏览器的兼容问题，不同浏览器对有些标签默认值是不同的。</li>
 </ul>
-<ol>
+<ol start="12">
 <li><code>absolute</code>（绝对定位）的<code>containing block</code>（容器块）计算方式与正常流有什么不同？</li>
 </ol>
 <ul>
@@ -610,14 +611,14 @@ var _hmt = _hmt || [];
 </ul>
 </li>
 </ul>
-<ol>
+<ol start="13">
 <li><code>visibility</code>的<code>callapse</code>属性，不同浏览器会有什么不同？</li>
 </ol>
 <ul>
 <li>对于普通元素，会将元素完全隐藏，不占据页面布局空间，与<code>display:none</code>表现相同。</li>
 <li>如果目标元素为<code>table</code>,将<code>table</code>隐藏，但会占据页面布局空间，仅在Firefox起作用，IE会显示元素，Chrome会将元素隐藏，但会占据空间。</li>
 </ul>
-<ol>
+<ol start="14">
 <li><code>position</code>跟display、margin、collapes、overflow、float这些特性相加会怎样？</li>
 </ol>
 <ul>
@@ -625,20 +626,20 @@ var _hmt = _hmt || [];
 <li>position 为 absolute/fixed， 元素绝对定位，float不起作用。</li>
 <li>float不是none，元素会脱离文档流，有浮动，绝对定位。</li>
 </ul>
-<ol>
+<ol start="15">
 <li>对 BFC（块级格式化上下文） 规范的理解：</li>
 </ol>
 <ul>
 <li>一个页面由多个容器（box）组成，元素类型和 display 属性，决定了 box 类型，不同 box 类型，参与不同的渲染文档的容器，因此 box 内的元素会以不同的方式渲染，也就是说 BFC 内部与外部互不影响。</li>
 </ul>
-<ol>
+<ol start="16">
 <li>CSS 定义的权重：</li>
 </ol>
 <ul>
 <li>标签为1，类为10，id为100， 其余累加。</li>
 <li>如果权重相同，则最后定义的样式起作用。</li>
 </ul>
-<ol>
+<ol start="17">
 <li>CSS 优化，提高性能的方法：</li>
 </ol>
 <ul>
@@ -647,14 +648,14 @@ var _hmt = _hmt || [];
 <li>提取项目的通用公有样式，增强可复用性，按模块编写组件，增强项目的协同开发性，可维护性和可扩展性。</li>
 <li>使用预处理工具或构件工具。</li>
 </ul>
-<ol>
+<ol start="18">
 <li>浏览器是怎样解析CSS选择器的？</li>
 </ol>
 <ul>
 <li>样式系统从关键选择器开始匹配，然后左移查找规则选择器的祖先元素。</li>
 <li>只要选择器的子树一直在工作，样式系统就会持续左移，直到和规则匹配，或者因为不匹配而放弃该规则。</li>
 </ul>
-<ol>
+<ol start="19">
 <li><p>如果需要手写动画，最小时间间隔是多少？</p>
 <p>多数显示器刷新默认频率是60Hz，即 1s 刷新60次，所以最小间隔为 1/60 * 1000 ms = 16.7 ms</p>
 </li>
@@ -666,7 +667,7 @@ var _hmt = _hmt || [];
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">-webkit-overflow-scolling</span><span class="selector-pseudo">:auto</span> 1 <span class="selector-tag">touch</span>;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<ol>
+<ol start="21">
 <li>什么是响应式设计，基本原理是什么？</li>
 </ol>
 <ul>
@@ -691,7 +692,7 @@ var _hmt = _hmt || [];
 <li>原型</li>
 <li>混合方式</li>
 </ul>
-<ol>
+<ol start="4">
 <li>对<code>this</code>的理解：</li>
 </ol>
 <ul>
@@ -700,7 +701,7 @@ var _hmt = _hmt || [];
 <li>在事件中，指向触发事件的对象。</li>
 <li>IE中，<code>attachEvent</code>中的this指向全局window。</li>
 </ul>
-<ol>
+<ol start="5">
 <li><p><code>eval</code>是做什么的？</p>
 <p>功能是把对应字符串解析成 JS 代码并运行。</p>
 </li>
@@ -711,7 +712,7 @@ var _hmt = _hmt || [];
 <li><code>window</code>对象指浏览器的窗口</li>
 <li><code>document</code> 对象是 HTML 文档对象，<code>window</code> 对象的一个属性。</li>
 </ul>
-<ol>
+<ol start="7">
 <li><code>null</code>、<code>undefined</code> 的区别</li>
 </ol>
 <ul>
@@ -719,9 +720,9 @@ var _hmt = _hmt || [];
 <li><code>undefined</code>表示变量声明了但没有初始化（赋值）。</li>
 <li><code>null</code>的类型是<code>Object</code>，一个空对象。</li>
 </ul>
-<ol>
-<li><p>```js<br>[‘1’,’2’,’3’].map(parseInt) // [1, NaN, NaN]</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- `parseInt`函数能解析一个字符串，并返回一个整数，需要两个参数（val，radix），radix表示要解析的数字的基数。（值介于2~36之间，且数字不能大于radix才能返回数字结果值）</span><br><span class="line"></span><br><span class="line">9. 什么是闭包？</span><br><span class="line"></span><br><span class="line">- 闭包是指有权访问另一个函数作用域中变量的**函数**。</span><br><span class="line">- 创建方式是在一个函数内创建另一个函数，通过另一个函数访问这个函数的局部变量。</span><br><span class="line">- 特性：</span><br><span class="line">  - 函数内再嵌套函数</span><br><span class="line">  - 内部函数可以引用外层的参数和变量</span><br><span class="line">  - 参数和变量不会被垃圾回收机制回收</span><br><span class="line"></span><br><span class="line">10. `new`操作符具体干了什么？</span><br><span class="line"></span><br><span class="line">- 创建一个空对象，并且`this`引用该对象，同时继承了该函数的原型。</span><br><span class="line">- 属性和方法被加入到`this`引用的对象中。</span><br><span class="line">- 新创建的对象由`this`所引用，并最后隐式返回`this`。</span><br><span class="line"></span><br><span class="line">11. JS 延迟加载的方式</span><br><span class="line"></span><br><span class="line">- defer 和 async</span><br><span class="line">- 动态创建 DOM</span><br><span class="line">- 按需异步加载js</span><br><span class="line"></span><br><span class="line">12. Ajax 是什么？ 如何执行和创建？</span><br><span class="line"></span><br><span class="line">- 异步加载和异步传输</span><br><span class="line"></span><br><span class="line">- 创建四步走</span><br><span class="line"></span><br><span class="line">  ```js</span><br><span class="line">  var xhr = new XMLHttpRequest(); // 创建</span><br><span class="line">  xhr.onreadystatechange = function ()&#123;  // 检测</span><br><span class="line">      if (xhr.ready.state === XMLHttpRequest.DONE)&#123;</span><br><span class="line">          if(xhr.staus === 200)&#123;</span><br><span class="line">              callback();</span><br><span class="line">          &#125;else&#123;</span><br><span class="line">              callback(xhr.status);</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      xhr.open(&quot;GET&quot;, url);  // 建立连接</span><br><span class="line">      xhr.send(data);  // 发送数据</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<ol start="8">
+<li><pre><code class="js">[<span class="string">'1'</span>,<span class="string">'2'</span>,<span class="string">'3'</span>].map(<span class="built_in">parseInt</span>) <span class="comment">// [1, NaN, NaN]</span>
+&lt;!--￼<span class="number">15</span>--&gt;</code></pre>
 </li>
 <li><p>如何解决跨域问题？</p>
 </li>
@@ -737,14 +738,14 @@ var _hmt = _hmt || [];
 </li>
 <li>Nginx 转发</li>
 </ul>
-<ol>
+<ol start="14">
 <li>AMD 与 CMD 的区别</li>
 </ol>
 <ul>
 <li>对于依赖的模块：AMD 是提前执行，CMD是延迟执行，后来都改成延迟执行。</li>
 <li>CMD 推崇依赖就近，AMD 推崇依赖前置。</li>
 </ul>
-<ol>
+<ol start="15">
 <li><code>call()</code>和<code>apply()</code>的区别</li>
 </ol>
 <ul>
@@ -755,14 +756,14 @@ var _hmt = _hmt || [];
 </ul>
 </li>
 </ul>
-<ol>
+<ol start="16">
 <li>检测浏览器版本的方式。</li>
 </ol>
 <ul>
 <li>功能检测</li>
 <li>userAgent特征检测</li>
 </ul>
-<ol>
+<ol start="17">
 <li>webpack 热更新实现原理。</li>
 </ol>
 <ul>
@@ -773,7 +774,7 @@ var _hmt = _hmt || [];
 <li>客户端获取到 <code>hash</code> 成功后客户端构造<code>hot-upda.js</code> script 链接，然后插入文档。</li>
 <li><code>hot-update.js</code>插入成功后，执行<code>hotAPI</code>的<code>createRecord</code>和<code>reload</code>方法，获取到 vue 的<code>render</code>方法，重新加载<code>render</code>组件，继而实现 UI 无刷新更新。</li>
 </ul>
-<ol>
+<ol start="18">
 <li>commonJS 规范特点：</li>
 </ol>
 <ul>

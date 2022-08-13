@@ -346,17 +346,24 @@ var _hmt = _hmt || [];
       
         <p>之前一直跟淘宝店长有联络，昨天接到一个项目部署任务，要求将Django在本地先跑起来了，配合着把论文完善。拿到项目源码以后，其实是有点懵逼的状态的，因为好久没有碰过Django了，下面将部署步骤进行记录，留着备用。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">说明：</span><br><span class="line">系统：WSL——Ubuntu18.04</span><br><span class="line">MySQL：8</span><br><span class="line">python：3.6.9</span><br><span class="line"></span><br><span class="line">requirements.txt</span><br><span class="line">    asgiref==3.2.7</span><br><span class="line">    Django==2.1.4</span><br><span class="line">    Pillow==7.1.1</span><br><span class="line">    PyMySQL==0.9.3</span><br><span class="line">    pytz==2019.3</span><br><span class="line">    sqlparse==0.3.1</span><br></pre></td></tr></table></figure>
+
 <a id="more"></a>
+
 <p>首先受到项目源码以后，没有看到<code>requirements.txt</code>文件，估计做项目的哥们忘了。（如果有这个文件，可以使用下面的命令直接安装相应的库）</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install -r requirements.txt</span><br></pre></td></tr></table></figure>
+
 <p>如何得到<code>requirements.txt</code>这个文件呢？</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip freeze &gt; requirements.txt</span><br></pre></td></tr></table></figure>
+
 <h2 id="创建虚拟环境"><a href="#创建虚拟环境" class="headerlink" title="创建虚拟环境"></a>创建虚拟环境</h2><p>好久没有用python虚拟环境了，所以虚拟环境被我删了，借着这次机会，重新回顾虚拟环境安装过程。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装虚拟环境管理器</span></span><br><span class="line">pip install virtualenv</span><br><span class="line">pip install virtualwrapper</span><br><span class="line"><span class="comment"># 添加环境变量（因为我用的zsh，所以配置文件是.zshrc，bash的配置文件是.bashrc）</span></span><br><span class="line">vim ~/.zshrc </span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> WORKON_HOME=/mnt/d/Envs  <span class="comment"># 设置虚拟环境的存储位置</span></span><br><span class="line"><span class="built_in">export</span> PROJECT_HOME=/mnt/d/wenjian/demo/PYthon/project   <span class="comment"># 设置项目存储位置</span></span><br><span class="line"><span class="built_in">export</span> VIRTUALENVWRAPPER_SCRIPT=/usr/<span class="built_in">local</span>/bin/virtualenvwrapper.sh</span><br><span class="line"><span class="built_in">source</span> /usr/<span class="built_in">local</span>/bin/virtualenvwrapper_lazy.sh</span><br><span class="line">VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3 <span class="comment"># 设置虚拟环境使用的python版本</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置虚拟环境</span></span><br><span class="line">mkvirtualenv shangcheng</span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动虚拟环境</span></span><br><span class="line">workon shangcheng</span><br></pre></td></tr></table></figure>
+
 <h2 id="启动MySQL"><a href="#启动MySQL" class="headerlink" title="启动MySQL"></a>启动MySQL</h2><p>由于电脑使用windows 10系统，安装了appserv， 所以使用下面命令启动MySQL：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqld</span><br></pre></td></tr></table></figure>
+
 <h2 id="调试部署"><a href="#调试部署" class="headerlink" title="调试部署"></a>调试部署</h2><p>首先执行Django启动命令，查看缺少哪些库，然后根据提示对库进行一一安装。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">python manage.py runserver</span><br><span class="line"></span><br><span class="line"><span class="comment"># 缺啥补啥</span></span><br><span class="line">pip install ******</span><br></pre></td></tr></table></figure>
+
 
     </div>
 

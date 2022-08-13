@@ -344,12 +344,14 @@ var _hmt = _hmt || [];
         <p><img src="/2019/10/31/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%88%9D%E4%BD%93%E9%AA%8C/github.jpg" alt="github"></p>
 <p>作为目前全球最大的程序员社区，GitHub 能做的不仅仅是托管源码这一操作，还可以使用GitHub 的Pages功能来搭建一个属于自己的博客，在上面可以写文章，开评论，跟读者互动，随意更换博客主题等等，只要你想折腾，你有时间，这些都能轻松搞定。</p>
 <a id="more"></a>
+
 <p>今天的这篇文章记录的是我如何一步步使用GitHub搭建出一个个人博客的。</p>
 <center><u><h4>
     博客搭建方案
     </h4></u></center>
 
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hexo + GitHub Page</span><br></pre></td></tr></table></figure>
+
 <center><u><h4>
     准备条件
     </h4></u></center>
@@ -357,38 +359,56 @@ var _hmt = _hmt || [];
 <p>GitHub 是个好东西啊，它提供了 GitHub Pages 帮助我们来架设一个静态网站，这就解决了服务器的问题。</p>
 <p>Hexo 这个博客框架没有那么重量级，它是 MarkDown 直接写文章的，然后 Hexo 可以直接将文章编译成静态网页文件并发布，所以这样文章的内容、标题、标签等信息就没必要存数据库里面了，是直接纯静态页面了，这就解决了数据库的问题。</p>
 <p>既然提到了GitHub Page，那么github账号当然必不可少。首先去github官网，注册一个属于自己的账号，有了账号才能肆意妄为不是吗？！嘿嘿嘿。有了账号，那我们就可以开工啦！</p>
-<p><center><u><h4>新建项目</h4></u></center><br>首先在 GitHub 新建一个仓库（Repository），名称为 {username}.github.io，注意这个名比较特殊，必须要是 github.io 为后缀结尾的。比如 NightTeam 的 GitHub 用户名就叫 NightTeam，那我就新建一个 nightteam.github.io，新建完成之后就可以进行后续操作了。</p>
+<center><u><h4>新建项目</h4></u></center>
+首先在 GitHub 新建一个仓库（Repository），名称为 {username}.github.io，注意这个名比较特殊，必须要是 github.io 为后缀结尾的。比如 NightTeam 的 GitHub 用户名就叫 NightTeam，那我就新建一个 nightteam.github.io，新建完成之后就可以进行后续操作了。
+
 <p>另外如果 GitHub 没有配置 SSH 连接的建议配置一下，这样后面在部署博客的时候会更方便。</p>
-<p><center><h4><u>安装环境</u></h4></center></p>
-<h5 id="安装-Node-js"><a href="#安装-Node-js" class="headerlink" title="安装 Node.js"></a>安装 Node.js</h5><p>由于我的电脑是Linux系统，已经安装好了node，可以使用<code>npm</code>命令。（Windows可以下载安装，下载地址：<a href="https://nodejs.org/zh-cn/download/，可以安装" target="_blank" rel="noopener">https://nodejs.org/zh-cn/download/，可以安装</a> Stable 版本。安装完毕之后，确保环境变量配置好，能正常使用 <code>npm</code> 命令。）</p>
+<center><h4><u>安装环境</u></h4></center>
+##### 安装 Node.js
+
+<p>由于我的电脑是Linux系统，已经安装好了node，可以使用<code>npm</code>命令。（Windows可以下载安装，下载地址：<a href="https://nodejs.org/zh-cn/download/，可以安装" target="_blank" rel="noopener">https://nodejs.org/zh-cn/download/，可以安装</a> Stable 版本。安装完毕之后，确保环境变量配置好，能正常使用 <code>npm</code> 命令。）</p>
 <h5 id="安装-Hexo"><a href="#安装-Hexo" class="headerlink" title="安装 Hexo"></a>安装 Hexo</h5><p>Hexo 官方提供了一个命令行工具，用于快速创建项目、页面、编译、部署 Hexo 博客，所以在这之前我们需要先安装 Hexo 的命令行工具。</p>
 <p>命令如下：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+
 <p>安装完毕之后，确保环境变量配置好，能正常使用 <code>hexo</code> 命令。</p>
-<p><center><h4><u>初始化项目</u><h4></h4></h4></center><br>使用 Hexo命令行创建一个项目，并在本地跑起来，看一下效果。</p>
+<center><h4><u>初始化项目</u><h4></h4></h4></center>
+使用 Hexo命令行创建一个项目，并在本地跑起来，看一下效果。
+
 <p>首先使用如下命令创建项目：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init &#123;name&#125;</span><br></pre></td></tr></table></figure>
+
 <p>这里的 name 就是项目名，创建 moxuan 的博客，命令如下：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init moxuan</span><br></pre></td></tr></table></figure>
+
 <p>初始化完成后会在 moxuan 文件夹下出现 Hexo 的初始化文件，包括 themes、scaffolds、source 等文件夹。</p>
 <p>接下来进入新生成的文件夹里面，调用 Hexo 的generate命令，将Hexo编译生成HTML代码。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo generate</span><br></pre></td></tr></table></figure>
+
 <p>可以看到输出结果里面包含了 js、css、font 等内容，并发现他们都处在了项目根目录下的 public 文件夹下面了。然后利用 Hexo 提供的 serve 命令把博客在本地运行起来，命令如下：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure>
+
 <p>运行之后命令行输入如下：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">INFO  Start processing</span><br><span class="line">INFO  Hexo is running at http://localhost:4000 . Press Ctrl+C to stop.</span><br></pre></td></tr></table></figure>
+
 <p>它告诉我们在本地 4000 端口上就可以查看博客站点了，如图所示：</p>
 <p><img src="/2019/10/31/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%88%9D%E4%BD%93%E9%AA%8C/640.jpg" alt></p>
 <p>这样一个博客的架子就出来了，我们只用了三个命令就完成了。</p>
-<p><center><h4><u>部署</u></h4></center><br>在部署之前，我们需要先知道博客的部署地址，它需要对应 GitHub 的一个 Repository 的地址，这个信息需要配置一下。</p>
+<center><h4><u>部署</u></h4></center>
+在部署之前，我们需要先知道博客的部署地址，它需要对应 GitHub 的一个 Repository 的地址，这个信息需要配置一下。
+
 <p>打开根目录下的 <code>_config.yml</code>文件，找到 Deployment 这个地方，把刚才新建的 Repository 的地址贴过来，然后指定分支为 master 分支，最终修改为如下内容：</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/deployment.html</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">	<span class="attr">type:</span> <span class="string">git</span>  </span><br><span class="line">	<span class="attr">repo:</span> <span class="string">&#123;git</span> <span class="string">repo</span> <span class="string">ssh</span> <span class="string">address&#125;</span>  </span><br><span class="line">	<span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
+
 <p>另外我们还需要额外安装一个支持 Git 的部署插件，名字叫做 hexo-deployer-git，安装命令：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+
 <p>完成了上面的工作，接下来就可以在github上面部署了,执行命令：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
+
 <p>运行结果类似下面这样：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">INFO  Deploying: git</span><br><span class="line">INFO  Clearing .deploy_git folder...</span><br><span class="line">INFO  Copying files from public folder...</span><br><span class="line">INFO  Copying files from extend dirs...</span><br><span class="line">On branch masternothing to commit, working directory clean</span><br><span class="line">Counting objects: 46, done.</span><br><span class="line">Delta compression using up to 8 threads.</span><br><span class="line">Compressing objects: 100% (36/36), done.</span><br><span class="line">Writing objects: 100% (46/46), 507.66 KiB | 0 bytes/s, done.</span><br><span class="line">Total 46 (delta 3), reused 0 (delta 0)</span><br><span class="line">remote: Resolving deltas: 100% (3/3), done.</span><br><span class="line">To git@github.com:NightTeam/nightteam.github.io.git </span><br><span class="line">* [new branch]      HEAD -&gt; master</span><br><span class="line">Branch master set up to track remote branch master from git@github.com:NightTeam/nightteam.github.io.git.</span><br><span class="line">INFO  Deploy done: git</span><br></pre></td></tr></table></figure>
+
 <p>如果出现类似上面的内容，就证明我们的博客已经成功部署到 GitHub Pages 上面了，这时候我们访问一下 GitHub Repository 同名的链接，就可以看到和本地一模一样的内容了。</p>
 
     </div>
@@ -482,7 +502,7 @@ var _hmt = _hmt || [];
     博客搭建方案
     </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-number">2.</span> <span class="nav-text">
     准备条件
-    </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-number">3.</span> <span class="nav-text">新建项目</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-number">4.</span> <span class="nav-text">安装环境</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#安装-Node-js"><span class="nav-number">4.1.</span> <span class="nav-text">安装 Node.js</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#安装-Hexo"><span class="nav-number">4.2.</span> <span class="nav-text">安装 Hexo</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-number">5.</span> <span class="nav-text">初始化项目</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-number">6.</span> <span class="nav-text"></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-number">7.</span> <span class="nav-text">部署</span></a></li></ol></div>
+    </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-number">3.</span> <span class="nav-text">新建项目</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-number">4.</span> <span class="nav-text">安装环境</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#安装-Hexo"><span class="nav-number">4.1.</span> <span class="nav-text">安装 Hexo</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-number">5.</span> <span class="nav-text">初始化项目</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-number">6.</span> <span class="nav-text"></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-number">7.</span> <span class="nav-text">部署</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

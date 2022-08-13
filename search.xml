@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>面试总结</title>
-    <url>/2020/04/21/%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
     <title>django商城部署</title>
     <url>/2020/04/05/django%E5%95%86%E5%9F%8E%E9%83%A8%E7%BD%B2/</url>
     <content><![CDATA[<p>之前一直跟淘宝店长有联络，昨天接到一个项目部署任务，要求将Django在本地先跑起来了，配合着把论文完善。拿到项目源码以后，其实是有点懵逼的状态的，因为好久没有碰过Django了，下面将部署步骤进行记录，留着备用。</p>
